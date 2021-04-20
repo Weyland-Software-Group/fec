@@ -110,11 +110,21 @@ a {
 }
 
 .star-review-scale {
-  background: #000;
+  background: #ccc;
   height: 8px;
   width: 180px;
   border-radius: 2px;
   margin-top: 6px;
+  position: relative;
+}
+
+.star-review-scale-inner {
+  background: #000;
+  height: 8px;
+  border-radius: 2px;
+  top: 0;
+  left: 0;
+  position: absolute;
 }
 
 .size-comfort-sub-container {
@@ -135,7 +145,7 @@ a {
 }
 
 .size-comfort-box {
-  background-color: #cac4c4;
+  background-color: #ccc;
   width: 80px;
   height: 8px;
   margin: 0 2px;
@@ -157,7 +167,8 @@ small {
 
 .stars-outer {
   position: relative;
-  display: inline-block;
+  display: flex;
+  flex-direction: row;
 }
 
 .stars-inner {
@@ -166,7 +177,6 @@ small {
   left: 0;
   white-space: nowrap;
   overflow: hidden;
-  width: 90%;
 }
 
 .stars-outer::before {
