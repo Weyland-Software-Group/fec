@@ -5,6 +5,7 @@ import SortBy from './sort-by.jsx';
 import ReviewPosts from './review-posts.jsx';
 import MoreReviews from './more-reviews.jsx';
 import AddReview from './add-review.jsx';
+import helpers from './helpers.js';
 
 class Reviews extends React.Component {
   constructor(props) {
@@ -23,9 +24,9 @@ class Reviews extends React.Component {
         </div>
         <div className="reviews-col-2">
           <SortBy data={this.props.data} />
-            {
-              this.props.data.reviews.reviews.results.map( result => <ReviewPosts data={this.props.data} title={result.summary} body={result.body} /> )
-            }
+          {this.props.data.reviews.reviews.results
+            .map( result => <ReviewPosts data={this.props.data}
+            title={result.summary} body={result.body} /> )}
           <div className="reviews-btn-row">
             <MoreReviews data={this.props.data} />
             <AddReview data={this.props.data} />
