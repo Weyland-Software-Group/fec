@@ -16,21 +16,17 @@ const helpers = {
   },
 
   findReviewPercentage: (ratingsObj) => {
-    const max = helpers.findMax(ratingsObj);
+    let total = helpers.getTotal(ratingsObj);
     const percentages = {};
     let percentageToAdd;
     for (let rating in ratingsObj) {
-      percentageToAdd = ratingsObj[rating] / max;
+      percentageToAdd = ratingsObj[rating] / total;
       percentages[rating] = percentageToAdd;
     }
     return percentages;
   },
 
-  findMax: (ratingsObj) => {
-    let compare = Object.values(ratingsObj);
-    compare = compare.sort((a, b) => b - a);
-    return compare[0];
-  },
+  getTotal: (ratingsObj) => Object.values(ratingsObj).length,
 };
 
 export default helpers;

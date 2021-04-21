@@ -84,8 +84,10 @@ a {
 }
 
 .username-date {
-  display: flex;
-  margin-left: 130px;
+  /* display: flex; */
+  /* margin-left: 350px; */
+  position: relative;
+  left: 60%;
 }
 
 .helpful {
@@ -96,6 +98,11 @@ a {
   font-size: 44px;
   font-weight: 900;
   color: #000;
+}
+
+.recommendation-percentage {
+  font-weight: 200;
+  font-size: 13px;
 }
 
 .individual-ratings-container {
@@ -130,6 +137,8 @@ a {
 .size-comfort-sub-container {
   display: flex;
   flex-direction: column;
+  width: 100%;
+  margin-right: 1px;
 }
 
 .size-comfort-scale {
@@ -138,15 +147,29 @@ a {
   font-size: 12px;
 }
 
+.size-comfort-container {
+  position: relative;
+  width: 80%;
+}
+
 .size-comfort {
   display: flex;
   flex-direction: row;
   margin: 5px 0 10px 0;
+  width: 100%;
+}
+
+.size-comfort-carrot {
+  position: absolute;
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  top: 11px;
+  font-size: 22px;
 }
 
 .size-comfort-box {
   background-color: #ccc;
-  width: 80px;
+  width: 100%;
   height: 8px;
   margin: 0 2px;
   border-radius: 2px;
@@ -162,16 +185,18 @@ small {
 
 
 .star-container {
-  margin: 3px 0 0 8px;
+  margin: 8px 0 0 8px;
 }
 
 .stars-outer {
+  font-size: 12px;
   position: relative;
   display: flex;
   flex-direction: row;
 }
 
 .stars-inner {
+  font-size: 12px;
   position: absolute;
   top: 0;
   left: 0;
@@ -190,4 +215,22 @@ small {
   font-family: 'Font Awesome 5 Free';
   font-weight: 900;
   color: #000;
+}
+
+.total-star-ratings {
+  position: relative;
+  left: 3px;
+}
+
+.ratings-pop-up {
+  position: relative;
+  margin-right: 3px;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.review-post-star-rating {
+  margin-left: none;
 }

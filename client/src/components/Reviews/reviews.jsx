@@ -26,7 +26,8 @@ class Reviews extends React.Component {
           <SortBy data={this.props.data} />
           {this.props.data.reviews.reviews.results
             .map( result => <ReviewPosts data={this.props.data}
-            title={result.summary} body={result.body} /> )}
+            title={result.summary} body={result.body} user={result.reviewer_name}
+            date={result.date} rating={result.rating} /> )}
           <div className="reviews-btn-row">
             <MoreReviews data={this.props.data} />
             <AddReview data={this.props.data} />
