@@ -8,16 +8,14 @@ class ReviewPosts extends React.Component {
 
     this.reviews = this.props.data.reviews;
 
-    this.state = {
-      rating: this.getRating(),
-    };
+    this.state = {};
 
     this.getRating = this.getRating.bind(this);
     this.getRatingPercentage = this.getRatingPercentage.bind(this);
   }
 
   getRating() {
-    let rating  = this.props.rating;
+    let rating = this.props.rating;
 
     if (rating.toString().length === 1) {
       rating = rating.toString() + '.0';
@@ -27,7 +25,7 @@ class ReviewPosts extends React.Component {
   }
 
   getRatingPercentage() {
-    let percentage = this.state.rating / 5;
+    let percentage = this.getRating() / 5;
     percentage *= 100;
     return `${Math.round(percentage / 10) * 10}%`;
   }

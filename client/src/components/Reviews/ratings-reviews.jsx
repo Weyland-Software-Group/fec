@@ -8,14 +8,24 @@ class RatingsReviews extends React.Component {
     super(props);
     this.reviews = this.props.data.reviews;
 
-    this.state = this.getRatings();
+    this.state = {};
 
     this.getRatingPercentage = this.getRatingPercentage.bind(this);
     this.createRatingsCountBars = this.createRatingsCountBars.bind(this);
     this.getRatings = this.getRatings.bind(this);
-  };
+  }
 
-  getRecommendationPercentage () {
+  componentDidMount() {
+    const ratings = this.getRatings();
+    this.setState({
+      rating: ratings.rating,
+      fit: ratings.fit,
+      comfort: ratings.comfort,
+      recommendationPercentage: ratings.recommendationPercentage,
+    });
+  }
+
+  getRecommendationPercentage() {
     const recommendationArray = [];
     for (let result of this.reviews.reviews.results) {
       if (result.recommend) recommendationArray.push(1);
@@ -37,14 +47,13 @@ class RatingsReviews extends React.Component {
     return { rating, fit, comfort, recommendationPercentage };
   }
 
-  getRatingPercentage () {
+  getRatingPercentage() {
     let percentage = this.state.rating / 5;
     percentage = percentage * 100;
     return `${Math.round(percentage / 10) * 10}%`;
   }
 
-  createRatingsCountBars () {
-    //should be percentage of total reviews
+  createRatingsCountBars() {
     const ratingsPercentages = helpers.findReviewPercentage(this.props.data.reviews.reviewMeta.ratings);
     const ratingsCountBars = [];
     let width;
@@ -53,23 +62,23 @@ class RatingsReviews extends React.Component {
       else {
         width = 0;
       }
-      ratingsCountBars.push(<RatingsCount reviews={this.reviews} width={width + '%'} stars={i}/>);
+      ratingsCountBars.push(<RatingsCount filter={this.props.filter} reviews={this.reviews} width={width + '%'} stars={i}/>);
     }
     return ratingsCountBars;
   }
 
   render() {
     const starInnerWidth = {
-      width: this.getRatingPercentage()
+      width: this.getRatingPercentage(),
     };
 
     const positionCarrot1 = {
-      left: this.state.fit + '%'
-    }
+      left: `${this.state.fit}%`,
+    };
 
     const positionCarrot2 = {
-      left: this.state.comfort + '%'
-    }
+      left: `${this.state.comfort}%`,
+    };
 
     return (
       <div>

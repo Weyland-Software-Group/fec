@@ -8,6 +8,7 @@ class RatingsCount extends React.Component {
     this.state = {};
 
     this.getTotalStarRatings = this.getTotalStarRatings.bind(this);
+    this.ratingFilter = this.ratingFilter.bind(this);
   }
 
   getTotalStarRatings(currentRating) {
@@ -20,6 +21,10 @@ class RatingsCount extends React.Component {
     return counter;
   }
 
+  ratingFilter() {
+    this.props.filter(this.props.stars);
+  }
+
   render() {
     const elWidth = {
       width: this.props.width
@@ -27,7 +32,7 @@ class RatingsCount extends React.Component {
 
     return (
       <div className="individual-ratings">
-        <div className="ratings-pop-up underline">{this.props.stars + ' stars'}</div>
+        <div onClick={this.ratingFilter} className="ratings-pop-up underline">{this.props.stars + ' stars'}</div>
         <div className="star-review-scale">
           <div style={elWidth} className="star-review-scale-inner"></div>
         </div>
