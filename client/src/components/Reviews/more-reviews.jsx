@@ -16,7 +16,7 @@ class MoreReviews extends React.Component {
   render() {
     return (
       <div>
-        <button onClick={this.handleClick} className="review-btn" type="button">Review Posts</button>
+        <button onClick={this.handleClick} className="review-btn" type="button">More Reviews</button>
       </div>
     );
   }

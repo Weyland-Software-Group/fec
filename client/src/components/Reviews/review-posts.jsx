@@ -46,7 +46,7 @@ class ReviewPosts extends React.Component {
                 </div>
               </div>
             </div>
-            <div className="username-date">{`${this.props.user}, ${moment(this.props.date).format('DD/MM/YYYY')}`}</div>
+            <div className="username-date">{`${this.props.user}, ${moment(this.props.date).format('MM/DD/YYYY')}`}</div>
           </div>
           <h3 className="review-post-title">{this.props.title}</h3>
           <p className="review-post-body">{this.props.body}</p>

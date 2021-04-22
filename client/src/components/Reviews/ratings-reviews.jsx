@@ -31,7 +31,7 @@ class RatingsReviews extends React.Component {
       if (result.recommend) recommendationArray.push(1);
       else { recommendationArray.push(0) };
     }
-    return `${helpers.average(recommendationArray) * 100}%`;
+    return `${(helpers.average(recommendationArray) * 100).toFixed(2)}%`;
   }
 
   getRatings() {
@@ -62,7 +62,15 @@ class RatingsReviews extends React.Component {
       else {
         width = 0;
       }
-      ratingsCountBars.push(<RatingsCount filter={this.props.filter} reviews={this.reviews} width={width + '%'} stars={i}/>);
+      ratingsCountBars.push(
+        <RatingsCount
+          addPosts={this.props.addPosts}
+          filter={this.props.filter}
+          reviews={this.reviews}
+          width={width + '%'}
+          stars={i}
+        />,
+      );
     }
     return ratingsCountBars;
   }

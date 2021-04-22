@@ -6,13 +6,13 @@ const helpers = {
   averageOfRatings: (ratingsObj) => {
     const toAverage = [];
     for (let rating in ratingsObj){
-      if(+ratingsObj[rating] > 1) {
+      if(+ratingsObj[rating].length > 1) {
         for (let i = 0; i < +ratingsObj[rating]; i++) toAverage.push(+rating);
       } else {
         toAverage.push(+rating);
       }
     }
-    return helpers.average(toAverage);
+    return helpers.average(toAverage).toFixed(2);
   },
 
   findReviewPercentage: (ratingsObj) => {

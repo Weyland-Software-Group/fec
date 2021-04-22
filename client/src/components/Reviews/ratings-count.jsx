@@ -23,6 +23,7 @@ class RatingsCount extends React.Component {
 
   ratingFilter() {
     this.props.filter(this.props.stars);
+    this.props.addPosts(this.props.reviews.reviews.results.length);
   }
 
   render() {
