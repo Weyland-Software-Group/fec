@@ -126,6 +126,7 @@ class Reviews extends React.Component {
       <div className="reviews">
         <div className="reviews-col-1">
           <RatingsReviews
+            filterBy={this.state.filterBy}
             addPosts={this.addPosts}
             filter={this.filterReviews}
             data={this.props.data}

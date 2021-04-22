@@ -18,9 +18,9 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        {/* <Overview data={sampleData} />
+        <Overview data={sampleData} />
         <Related data={sampleData} />
-        <QA data={sampleData} /> */}
+        <QA data={sampleData} />
         <Reviews data={sampleData} />
       </div>
     );

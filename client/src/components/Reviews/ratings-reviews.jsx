@@ -13,6 +13,8 @@ class RatingsReviews extends React.Component {
     this.getRatingPercentage = this.getRatingPercentage.bind(this);
     this.createRatingsCountBars = this.createRatingsCountBars.bind(this);
     this.getRatings = this.getRatings.bind(this);
+    this.filtersApplied = this.filtersApplied.bind(this);
+    this.showFilters = this.showFilters.bind(this);
   }
 
   componentDidMount() {
@@ -79,6 +81,27 @@ class RatingsReviews extends React.Component {
     return ratingsCountBars;
   }
 
+  filtersApplied() {
+    const filtersArr = [];
+    this.props.filterBy.forEach(filter => filtersArr
+      .push(
+        <div className="filters-applied">{filter} star reviews</div>,
+      ));
+    return filtersArr;
+  }
+
+  showFilters() {
+    if (this.props.filterBy.length) {
+      return (
+        <div>
+          <div className="underline filters-applied-title">Filters Applied:</div>
+          {this.filtersApplied()}
+          <div className="underline remove-filters">Remove Filters</div>
+        </div>
+      );
+    }
+  }
+
   render() {
     const starInnerWidth = {
       width: this.getRatingPercentage(),
@@ -116,6 +139,7 @@ class RatingsReviews extends React.Component {
           <h4 className="recommendation-percentage">{this.state.recommendationPercentage}
           of reviews recommend this product out of {this.reviews.reviews.results.length} total reviews</h4>
           {this.createRatingsCountBars().map(ratingsCountBar => ratingsCountBar)}
+          <div>{this.showFilters()}</div>
         </div>
         <div className="size-comfort-scale">
           <div className="size-comfort-container">
