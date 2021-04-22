@@ -21,6 +21,8 @@ class RatingsReviews extends React.Component {
       rating: ratings.rating,
       fit: ratings.fit,
       comfort: ratings.comfort,
+      length: ratings.length,
+      quality: ratings.quality,
       recommendationPercentage: ratings.recommendationPercentage,
     });
   }
@@ -38,13 +40,15 @@ class RatingsReviews extends React.Component {
     let rating = helpers.averageOfRatings(this.reviews.reviewMeta.ratings);
     let fit = this.reviews.reviewMeta.characteristics.Fit.value / 5;
     let comfort = this.reviews.reviewMeta.characteristics.Comfort.value / 5;
+    let length = this.reviews.reviewMeta.characteristics.Length.value / 5;
+    let quality = this.reviews.reviewMeta.characteristics.Quality.value / 5;
     const recommendationPercentage = this.getRecommendationPercentage();
-    fit = fit * 94, comfort = comfort * 94;
+    fit = fit * 94, comfort = comfort * 94, length = length * 94, quality = quality * 94;
 
     if (rating.toString().length === 1) {
       rating = rating.toString() + '.0';
     }
-    return { rating, fit, comfort, recommendationPercentage };
+    return { rating, fit, comfort, recommendationPercentage, length, quality };
   }
 
   getRatingPercentage() {
@@ -88,6 +92,14 @@ class RatingsReviews extends React.Component {
       left: `${this.state.comfort}%`,
     };
 
+    const positionCarrot3 = {
+      left: `${this.state.length}%`,
+    };
+
+    const positionCarrot4 = {
+      left: `${this.state.quality}%`,
+    };
+
     return (
       <div>
         <h4>Ratings and Reviews</h4>
@@ -107,7 +119,7 @@ class RatingsReviews extends React.Component {
         </div>
         <div className="size-comfort-scale">
           <div className="size-comfort-container">
-            <span className="size-comfort-heading">Size</span>
+            <span className="size-comfort-heading">Fit</span>
             <i style={positionCarrot1} className="fas fa-caret-down size-comfort-carrot"></i>
             <div className="size-comfort">
               <div className="size-comfort-sub-container">
@@ -130,6 +142,23 @@ class RatingsReviews extends React.Component {
             <div className="size-comfort">
               <div className="size-comfort-sub-container">
                 <div className="size-comfort-box"></div>
+                <small>Poor</small>
+              </div>
+              <div className="size-comfort-sub-container">
+                <div className="size-comfort-box"></div>
+              </div>
+              <div className="size-comfort-sub-container">
+                <div className="size-comfort-box"></div>
+                <small>Great</small>
+              </div>
+            </div>
+          </div>
+          <div className="size-comfort-container">
+            <span className="size-comfort-heading">Length</span>
+            <i style={positionCarrot3} className="fas fa-caret-down size-comfort-carrot"></i>
+            <div className="size-comfort">
+              <div className="size-comfort-sub-container">
+                <div className="size-comfort-box"></div>
                 <small>Too small</small>
               </div>
               <div className="size-comfort-sub-container">
@@ -139,6 +168,23 @@ class RatingsReviews extends React.Component {
               <div className="size-comfort-sub-container">
                 <div className="size-comfort-box"></div>
                 <small>Too large</small>
+              </div>
+            </div>
+          </div>
+          <div className="size-comfort-container">
+            <span className="size-comfort-heading">Quality</span>
+            <i style={positionCarrot4} className="fas fa-caret-down size-comfort-carrot"></i>
+            <div className="size-comfort">
+              <div className="size-comfort-sub-container">
+                <div className="size-comfort-box"></div>
+                <small>Poor</small>
+              </div>
+              <div className="size-comfort-sub-container">
+                <div className="size-comfort-box"></div>
+              </div>
+              <div className="size-comfort-sub-container">
+                <div className="size-comfort-box"></div>
+                <small>Great</small>
               </div>
             </div>
           </div>
