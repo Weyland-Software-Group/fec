@@ -9,6 +9,7 @@ body {
   justify-content: center;
   align-items: center;
   width: 95%;
+  margin-top: 75px;
 }
 
 .reviews-col-1 {
@@ -112,8 +113,15 @@ a {
 }
 
 .individual-ratings {
+  width: 86%;
   display: flex;
   flex-direction: row;
+  font-size: 14px;
+  margin: 3px 0;
+}
+
+.individual-ratings:hover {
+  background-color: #e8c7c7;
 }
 
 .star-review-scale {

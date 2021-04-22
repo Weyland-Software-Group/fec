@@ -31,8 +31,8 @@ class RatingsCount extends React.Component {
     };
 
     return (
-      <div className="individual-ratings">
-        <div onClick={this.ratingFilter} className="ratings-pop-up underline">{this.props.stars + ' stars'}</div>
+      <div onClick={this.ratingFilter} className="individual-ratings">
+        <div className="ratings-pop-up underline">{this.props.stars + ' stars'}</div>
         <div className="star-review-scale">
           <div style={elWidth} className="star-review-scale-inner"></div>
         </div>

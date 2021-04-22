@@ -92,6 +92,7 @@ class RatingsReviews extends React.Component {
           </div>
         </div>
         <div className="individual-ratings-container">
+          <h4>Ratings Breakdown:</h4>
           <h4 className="recommendation-percentage">{this.state.recommendationPercentage}
           of reviews recommend this product out of {this.reviews.reviews.results.length} total reviews</h4>
           {this.createRatingsCountBars().map(ratingsCountBar => ratingsCountBar)}

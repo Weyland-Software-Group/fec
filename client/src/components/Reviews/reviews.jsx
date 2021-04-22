@@ -15,23 +15,25 @@ class Reviews extends React.Component {
     super(props);
 
     this.state = {
-      filterBy: null,
+      filterBy: [],
     };
 
     this.filterReviews = this.filterReviews.bind(this);
   }
 
-  filterReviews(filterBy) {
+  filterReviews(newFilter) {
+    const filterByArr = this.state.filterBy;
+    filterByArr.push(newFilter);
     this.setState({
-      filterBy,
+      filterBy: filterByArr,
     });
   }
 
   render() {
     const renderReviewPosts = () => {
-      if (this.state.filterBy) {
+      if (this.state.filterBy.length) {
         return this.props.data.reviews.reviews.results
-          .filter(result => result.rating === this.state.filterBy)
+          .filter(result => this.state.filterBy.includes(result.rating))
           .map(result => <ReviewPosts
             data={this.props.data}
             title={result.summary}
