@@ -26,7 +26,13 @@ const helpers = {
     return percentages;
   },
 
-  getTotal: (ratingsObj) => Object.values(ratingsObj).length,
+  getTotal: (ratingsObj) => {
+    let total = 0;
+    for (let rating in ratingsObj) {
+      total += Number(ratingsObj[rating]);
+    }
+    return total;
+  }
 };
 
 export default helpers;

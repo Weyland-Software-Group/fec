@@ -85,8 +85,6 @@ a {
 }
 
 .username-date {
-  /* display: flex; */
-  /* margin-left: 350px; */
   position: relative;
   left: 60%;
 }
@@ -242,3 +240,10 @@ small {
 .review-post-star-rating {
   margin-left: 0px;
 }
+<<<<<<< HEAD
+=======
+
+h4 {
+  font-size: 18px;
+}
+>>>>>>> 80115ea... more reviews button functionality created

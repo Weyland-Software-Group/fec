@@ -4,15 +4,19 @@ class MoreReviews extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
+    this.state = {};
 
-    };
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    this.props.addPosts(this.props.prevPosts);
   }
 
   render() {
     return (
       <div>
-        <button className="review-btn" type="button">Review Posts</button>
+        <button onClick={this.handleClick} className="review-btn" type="button">Review Posts</button>
       </div>
     );
   }

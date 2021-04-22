@@ -82,7 +82,7 @@ class RatingsReviews extends React.Component {
 
     return (
       <div>
-        <h5>Ratings and Reviews</h5>
+        <h4>Ratings and Reviews</h4>
         <div className="star-rating-container">
           <div className="star-rating-header">{this.state.rating}</div>
           <div className="star-container">
