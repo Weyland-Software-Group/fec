@@ -34,21 +34,21 @@ class RatingsReviews extends React.Component {
         { length: ratings.length },
         { quality: ratings.quality },
       ],
-    }, () => this.getRating());
+    });
   }
 
   getRating() {
     const avgRating = helpers.getRating(this.state.avgRating, this.reviews.reviewMeta.ratings);
-    this.setState({
-      avgRating,
-    }, () => this.getRatingPercentage());
+    // this.setState({
+    //   avgRating,
+    // });
   }
 
   getRatingPercentage() {
     const ratingPercentage = helpers.getRatingPercentage(this.state.avgRating);
-    this.setState({
-      ratingPercentage,
-    }, this.renderProductBreakdown());
+    // this.setState({
+    //   ratingPercentage,
+    // });
   }
 
   getRecommendationPercentage() {

@@ -9,14 +9,16 @@ class AddReview extends React.Component {
     this.renderForm = this.renderForm.bind(this);
   }
 
-  renderForm() {
+  renderForm(e) {
+    e.preventDefault();
+    console.log('clicked')
     this.props.changeFormState(true);
   }
 
   render() {
     return (
       <div>
-        <button onClick={this.renderForm} className="review-btn" type="button">Add Review</button>
+        <button onClick={(e) => this.renderForm(e)} className="review-btn" type="button">Add Review</button>
       </div>
     );
   }

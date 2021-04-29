@@ -66,7 +66,7 @@ class Reviews extends React.Component {
   changeFormState(formState) {
     this.setState({
       renderForm: formState,
-    }, () => this.renderReviewForm());
+    });
   }
 
   addPosts(prevPosts) {
@@ -136,7 +136,6 @@ class Reviews extends React.Component {
 
     return (
       <div className="reviews">
-        {/* {console.log('reviews:', this.reviews)} */}
         <div className="reviews-col-1">
           <RatingsReviews
             filterBy={this.state.filterBy}
@@ -159,7 +158,7 @@ class Reviews extends React.Component {
               addPosts={this.addPosts}
               data={this.props.data}
             />
-            <AddReview changeFormState={this.changeFormState} data={this.props.data} />
+            <AddReview changeFormState={this.changeFormState} />
           </div>
         </div>
         {this.renderReviewForm()}
