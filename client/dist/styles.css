@@ -54,20 +54,31 @@ a {
   position: relative;
 }
 
+/* --- RELATED CSS --- */
+
 #starModalButton {
   position: relative;
   left: 50%;
-  bottom: 2%;
+  bottom: 7.75%;
   cursor: pointer;
+  padding-bottom: 0%;
 }
 
 #removeOutfitButton {
   position: relative;
   left: 50%;
-  bottom: 2%;
+  bottom: 7.75%;
   cursor: pointer;
+  padding-bottom: 0%;
 }
 
 #addToOutfit {
+  cursor: pointer;
+}
+
+#plusIcon {
+  position: relative;
+  left: 49%;
+  bottom: 8%;
   cursor: pointer;
 }

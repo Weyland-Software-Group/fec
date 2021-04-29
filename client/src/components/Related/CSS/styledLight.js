@@ -1,22 +1,17 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import styled from 'styled-components';
 
-const OutfitWrapperDiv = styled.div`
-background-color: white;
+const carouselWrapperDiv = styled.div`
+background-color: #f7f7f7;
 position: relative;
 width: 100%;
 height: 550px;
 `;
 
-const carouselWrapperDiv = styled.div`
-background-color: white;
-position: relative;
-width: 100%;
-height: 550px;
+const OutfitWrapperDiv = styled(carouselWrapperDiv)`
 `;
 
 const carouselDiv = styled.div`
-background-color: #f7f7f7;
 overflow-x: hidden;
 overflow-y: hidden;
 scroll-behavior: smooth;
@@ -26,10 +21,12 @@ width: 52%;
 margin-left: 23%;
 margin-right: 23%;
 display: flex;
-padding-top: 5%;
+padding-top: 1%;
 padding-bottom: 8%;
 box-sizing: border-box;
   `;
+
+const outfitCarouselDiv = styled(carouselDiv)``;
 
 const cardComponentDiv = styled.div`
 background-color: #f7f7f7;
@@ -44,21 +41,12 @@ box-shadow: -1rem 2rem 3rem grey;
 margin-right: 2.5%;
 margin-left: 2.5%;
 font-size: .2em;
+padding-top: 2%;
   `;
 
-const outfitCardComponentDiv = styled.div`
-  background: #f7f7f7;
-  text-align: center;
-  border-radius: 4px;
-  font-family: Verdana;
-  max-width: 20%;
-  min-width: 20%;
-  height: auto;
-  margin-right: 2.5%;
-  margin-left: 2.5%;
-  font-size: .2em;
-  box-shadow: -1rem 2rem 3rem #100e17;
-  `;
+const outfitCardComponentDiv = styled(cardComponentDiv)``;
+
+const addToOutfitCard = styled(cardComponentDiv)``;
 
 const nextComponentDiv = styled.div`
   position: absolute;
@@ -75,10 +63,16 @@ const prevComponentDiv = styled.div`
   `;
 
 const cardImg = styled.img`
-  height: 70%;
-  width: 70%;
-  object-fit: cover;
-  margin: auto;
+padding-top: 5%;
+height: 72%;
+width: 89%;
+object-fit: cover;
+margin: auto;
+border-radius: 100px;
+  `;
+
+const addToOutfitImg = styled(cardImg)`
+padding-top: 5%;
   `;
 
 const navButtons = styled.button`
@@ -93,17 +87,8 @@ const navButtons = styled.button`
   border-radius: 4px;
   cursor: pointer;
   `;
-const navOutfitButtons = styled.button`
+const navOutfitButtons = styled(navButtons)`
   background-color: #100e17;
-  border: none;
-  color: white;
-  padding: 40% 16px;
-  text-align: center;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  border-radius: 4px;
-  cursor: pointer;
   `;
 
 const modalDiv = styled.div`
@@ -147,6 +132,21 @@ height: fit-content;
 padding: 2%;
 `;
 
+const modalTitle = styled.div`
+font-size: 5em;
+border: 1px solid black;
+border-radius: 10px;
+background-color: #100e17;
+color: white;
+`;
+
+const modalFirstRow = styled.th`
+height: 10%;
+border: 1px solid grey;
+border-radius: 10px;
+background-color: grey;
+`;
+
 const tableData = styled.td`
 border: 1px solid grey;
 text-align: center;
@@ -172,27 +172,14 @@ color: white;
 border-radius: 50% 20% / 10% 40%;
 `;
 
-const modalTitle = styled.div`
-font-size: 5em;
-border: 1px solid black;
-border-radius: 10px;
-background-color: #100e17;
-color: white;
-`;
-
-const modalFirstRow = styled.th`
-height: 10%;
-border: 1px solid grey;
-border-radius: 10px;
-background-color: grey;
-`;
-
 const a = styled.a`
 color: black;
 `;
 
 const styledLight = {
   a,
+  addToOutfitImg,
+  addToOutfitCard,
   modalFirstRow,
   modalTitle,
   closeModal,
@@ -212,6 +199,7 @@ const styledLight = {
   salePrice,
   defaultPriceStrike,
   outfitCardComponentDiv,
+  outfitCarouselDiv,
 };
 
 export default styledLight;

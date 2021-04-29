@@ -255,7 +255,7 @@ class Carousel extends React.Component {
               styles={styles}
             />
           ) : null}
-          <styles.carouselDiv ref={this.scrollOutfitRef}>
+          <styles.outfitCarouselDiv ref={this.scrollOutfitRef}>
             <FirstOutfitCard
               overviewProduct={name}
               id={id}
@@ -284,7 +284,7 @@ class Carousel extends React.Component {
                 styles={styles}
               />
             ))}
-          </styles.carouselDiv>
+          </styles.outfitCarouselDiv>
           {nextOutfitVisible ? (
             <NextOutfit
               scroll={this.scrollOutfitNext}

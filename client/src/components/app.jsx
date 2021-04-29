@@ -1,3 +1,4 @@
+/* eslint-disable react/destructuring-assignment */
 import React from 'react';
 import $ from 'jquery';
 import Overview from './Overview/overview.jsx';

@@ -1,22 +1,18 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import styled from 'styled-components';
 
-const OutfitWrapperDiv = styled.div`
-background-color: black;
+const carouselWrapperDiv = styled.div`
+background-color: #353131;
 position: relative;
 width: 100%;
 height: 550px;
 `;
 
-const carouselWrapperDiv = styled.div`
-background-color: black;
-position: relative;
-width: 100%;
-height: 550px;
+const OutfitWrapperDiv = styled(carouselWrapperDiv)`
 `;
 
 const carouselDiv = styled.div`
-background-color: black;
+background-color: #353131;
 overflow-x: hidden;
 overflow-y: hidden;
 scroll-behavior: smooth;
@@ -26,13 +22,15 @@ width: 52%;
 margin-left: 23%;
 margin-right: 23%;
 display: flex;
-padding-top: 5%;
+padding-top: 1%;
 padding-bottom: 8%;
 box-sizing: border-box;
 `;
 
+const outfitCarouselDiv = styled(carouselDiv)``;
+
 const cardComponentDiv = styled.div`
-background-color: black;
+background-color: #353131;
 color: white;
 text-align: center;
 border-radius: 4px;
@@ -44,22 +42,12 @@ box-shadow: -1rem 2rem 3rem grey;
 margin-right: 2.5%;
 margin-left: 2.5%;
 font-size: .2em;
+padding-top: 2%;
 `;
 
-const outfitCardComponentDiv = styled.div`
-background-color: black;
-color: white;
-text-align: center;
-border-radius: 4px;
-font-family: Verdana;
-max-width: 20%;
-min-width: 20%;
-height: auto;
-box-shadow: -1rem 2rem 3rem grey;
-margin-right: 2.5%;
-margin-left: 2.5%;
-font-size: .2em;
-`;
+const outfitCardComponentDiv = styled(cardComponentDiv)``;
+
+const addToOutfitCard = styled(cardComponentDiv)``;
 
 const nextComponentDiv = styled.div`
   position: absolute;
@@ -73,17 +61,23 @@ const prevComponentDiv = styled.div`
   top: 40%;
   left: 19%;
   z-index: 10;
-  `;
+`;
 
 const cardImg = styled.img`
-  height: 70%;
-  width: 70%;
-  object-fit: cover;
-  margin: auto;
+padding-top: 5%;
+height: 72%;
+width: 89%;
+object-fit: cover;
+margin: auto;
+border-radius: 100px;
+  `;
+
+const addToOutfitImg = styled(cardImg)`
+padding-top: 5%;
   `;
 
 const navButtons = styled.button`
-  background-color: midnightblue;
+  background-color: #2ada71;
   border: none;
   color: white;
   padding: 40% 16px;
@@ -94,21 +88,12 @@ const navButtons = styled.button`
   border-radius: 4px;
   cursor: pointer;
   `;
-const navOutfitButtons = styled.button`
-  background-color: #100e17;
-  border: none;
-  color: white;
-  padding: 40% 16px;
-  text-align: center;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  border-radius: 4px;
-  cursor: pointer;
+const navOutfitButtons = styled(navButtons)`
+  background-color: ##2ada71;
   `;
 
 const modalDiv = styled.div`
-background: #f7f7f7;
+background: ##2ada71;
 text-align: center;
 border-radius: 40px;
 font-family: Verdana;
@@ -143,16 +128,31 @@ border: 1px solid grey;
 width: 100%;
 height: 100%;
 border-radius: 10px;
-background-color: midnightblue;
+background-color: #2ada71;
 height: fit-content;
 padding: 2%;
+`;
+
+const modalTitle = styled.div`
+font-size: 5em;
+border: 1px solid black;
+border-radius: 10px;
+background-color: #100e17;
+color: white;
+`;
+
+const modalFirstRow = styled.th`
+height: 10%;
+border: 1px solid grey;
+border-radius: 10px;
+background-color: grey;
 `;
 
 const tableData = styled.td`
 border: 1px solid grey;
 text-align: center;
 border-radius: 10px;
-background-color: white;
+background-color: black;
 `;
 
 const tableHeader = styled.th`
@@ -173,27 +173,14 @@ color: white;
 border-radius: 50% 20% / 10% 40%;
 `;
 
-const modalTitle = styled.div`
-font-size: 5em;
-border: 1px solid black;
-border-radius: 10px;
-background-color: #100e17;
-color: white;
-`;
-
-const modalFirstRow = styled.th`
-height: 10%;
-border: 1px solid grey;
-border-radius: 10px;
-background-color: grey;
-`;
-
 const a = styled.a`
 color: white;
 `;
 
 const styledDark = {
   a,
+  addToOutfitImg,
+  addToOutfitCard,
   modalFirstRow,
   modalTitle,
   closeModal,
@@ -213,6 +200,7 @@ const styledDark = {
   salePrice,
   defaultPriceStrike,
   outfitCardComponentDiv,
+  outfitCarouselDiv,
 };
 
 export default styledDark;
