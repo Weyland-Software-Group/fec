@@ -4,7 +4,6 @@
 /* eslint-disable import/extensions */
 /* eslint-disable react/prop-types */
 import React from 'react';
-import styles from '../../styled.js';
 import ModalCompare from './ModalCompare.jsx';
 import Stars from './Stars.jsx';
 
@@ -117,6 +116,7 @@ class CardStateful extends React.Component {
       overviewProduct,
       overviewId,
       clickHandler,
+      styles,
     } = this.props;
 
     const {
@@ -133,7 +133,7 @@ class CardStateful extends React.Component {
           }}
         />
         <br />
-        <a href={`/products/${id}/`} onClick={() => { clickHandler(`nav to product page: ${name} id: ${id}`); }}>
+        <styles.a id="a" href={`/products/${id}/`} onClick={() => { clickHandler(`nav to product page: ${name} id: ${id}`); }}>
           <span>{name}</span>
           <br />
           {salePrice ? (
@@ -144,7 +144,7 @@ class CardStateful extends React.Component {
           ) : <span>{`$${defaultPrice}`}</span>}
           <styles.cardImg src={image} alt="" />
           <br />
-        </a>
+        </styles.a>
         {starMap.length > 0 ? (
           <Stars
             starMap={starMap}
@@ -159,6 +159,7 @@ class CardStateful extends React.Component {
             comparisonData={comparisonData}
             overviewProduct={overviewProduct}
             name={name}
+            styles={styles}
           />
         ) : null}
       </styles.cardComponentDiv>

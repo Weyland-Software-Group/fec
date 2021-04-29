@@ -9,7 +9,6 @@ import PrevOutfit from './buttons/PrevOutfit.jsx';
 import CardStateful from '../card/CardStateful.jsx';
 import FirstOutfitCard from '../card/FirstOutfitCard.jsx';
 import OutfitCardStateful from '../card/OutfitCardStateful.jsx';
-import styles from '../../styled.js';
 
 class Carousel extends React.Component {
   constructor(props) {
@@ -203,7 +202,7 @@ class Carousel extends React.Component {
     const { name, id } = this.props.data.product;
     const { results } = this.props.data.styles;
     const {
-      refreshOutfit, addToOutfit, removeFromOutfit, clickHandler,
+      refreshOutfit, addToOutfit, removeFromOutfit, clickHandler, styles,
     } = this.props;
     return (
       <div>
@@ -212,6 +211,7 @@ class Carousel extends React.Component {
             <Prev
               scroll={this.scrollPrev}
               className={buttonDisable ? 'disabled' : null}
+              styles={styles}
             />
           ) : null}
           <styles.carouselDiv ref={this.scrollRef}>
@@ -234,6 +234,7 @@ class Carousel extends React.Component {
                 overviewProduct={name}
                 overviewId={id}
                 clickHandler={clickHandler}
+                styles={styles}
               />
             ))}
           </styles.carouselDiv>
@@ -241,15 +242,17 @@ class Carousel extends React.Component {
             <Next
               scroll={this.scrollNext}
               className={buttonDisable ? 'disabled' : null}
+              styles={styles}
             />
           ) : null}
         </styles.carouselWrapperDiv>
-        <br />
+
         <styles.OutfitWrapperDiv>
           {prevOutfitVisible ? (
             <PrevOutfit
               scroll={this.scrollOutfitPrev}
               className={buttonDisable ? 'disabled' : null}
+              styles={styles}
             />
           ) : null}
           <styles.carouselDiv ref={this.scrollOutfitRef}>
@@ -260,6 +263,7 @@ class Carousel extends React.Component {
               addToOutfit={addToOutfit}
               refreshOutfit={refreshOutfit}
               clickHandler={clickHandler}
+              styles={styles}
             />
             {sortedOutfitData.map(({
               outfitInformation, outfitStyles, reviews,
@@ -277,6 +281,7 @@ class Carousel extends React.Component {
                 reviews={reviews.results}
                 removeFromOutfit={removeFromOutfit}
                 clickHandler={clickHandler}
+                styles={styles}
               />
             ))}
           </styles.carouselDiv>
@@ -284,6 +289,7 @@ class Carousel extends React.Component {
             <NextOutfit
               scroll={this.scrollOutfitNext}
               className={buttonDisable ? 'disabled' : null}
+              styles={styles}
             />
           ) : null}
         </styles.OutfitWrapperDiv>

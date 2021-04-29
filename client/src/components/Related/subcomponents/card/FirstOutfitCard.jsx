@@ -4,7 +4,6 @@
 /* eslint-disable import/extensions */
 /* eslint-disable react/prop-types */
 import React from 'react';
-import styles from '../../styled.js';
 
 class FirstOutfitCard extends React.Component {
   constructor(props) {
@@ -17,11 +16,11 @@ class FirstOutfitCard extends React.Component {
 
   render() {
     const {
-      overviewProduct, image, id, addToOutfit, clickHandler,
+      overviewProduct, image, id, addToOutfit, clickHandler, styles,
     } = this.props;
     return (
       <styles.outfitCardComponentDiv>
-        <a onClick={() => { addToOutfit(id); clickHandler(`added to outfit: ${overviewProduct} id: ${id}`); }} id="addToOutfit">
+        <styles.a onClick={() => { addToOutfit(id); clickHandler(`added to outfit: ${overviewProduct} id: ${id}`); }} id="addToOutfit">
           <br />
           <i className="fas fa-plus fa-8x" />
           <br />
@@ -32,7 +31,7 @@ class FirstOutfitCard extends React.Component {
           {overviewProduct}
           {' '}
           to your Outfit.
-        </a>
+        </styles.a>
       </styles.outfitCardComponentDiv>
     );
   }
