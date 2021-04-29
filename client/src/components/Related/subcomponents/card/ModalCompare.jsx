@@ -3,10 +3,9 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 // eslint-disable-next-line import/extensions
-import styles from '../../styled.js';
 
 const ModalCompare = ({
-  toggleModal, comparisonData, name, overviewProduct,
+  toggleModal, comparisonData, name, overviewProduct, styles,
 }) => (
   <styles.modalDiv>
     <styles.closeModal onClick={() => { toggleModal(); }}>X</styles.closeModal>
