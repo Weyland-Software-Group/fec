@@ -18,6 +18,7 @@ scroll-behavior: smooth;
 position: relative;
 height: 100%;
 width: 52%;
+top: 10%;
 margin-left: 23%;
 margin-right: 23%;
 display: flex;
@@ -26,7 +27,9 @@ padding-bottom: 8%;
 box-sizing: border-box;
   `;
 
-const outfitCarouselDiv = styled(carouselDiv)``;
+const outfitCarouselDiv = styled(carouselDiv)`
+top: -2%;
+`;
 
 const cardComponentDiv = styled.div`
 background-color: #f7f7f7;
@@ -41,7 +44,6 @@ box-shadow: -1rem 2rem 3rem grey;
 margin-right: 2.5%;
 margin-left: 2.5%;
 font-size: .2em;
-padding-top: 2%;
   `;
 
 const outfitCardComponentDiv = styled(cardComponentDiv)``;
@@ -72,7 +74,8 @@ border-radius: 100px;
   `;
 
 const addToOutfitImg = styled(cardImg)`
-padding-top: 5%;
+position: relative;
+top: 3%;
   `;
 
 const navButtons = styled.button`
@@ -92,25 +95,18 @@ const navOutfitButtons = styled(navButtons)`
   `;
 
 const modalDiv = styled.div`
-background: #f7f7f7;
 text-align: center;
-border-radius: 40px;
+border-radius: 6px;
 font-family: Verdana;
-height: 45%;
-width: 45%;
-flex-direction: column;
-padding: 1.5rem;
+height: 40%;
+width: 59%;
+-webkit-flex-direction: column;
+padding: 20%;
 z-index: 100;
 position: fixed;
-top: 25%;
-left: 30%;
-border: 2px solid;
-border-color: grey;
-overflow-y: scroll;
-::-webkit-scrollbar {
-  width: 0;  /* Remove scrollbar space */
-  background: transparent;  /* Optional: just make scrollbar invisible */
-}
+top: -10%;
+left: 0%;
+overflow-y: hidden;
 `;
 
 const salePrice = styled.span`
@@ -126,50 +122,55 @@ const table = styled.table`
 border: 1px solid grey;
 width: 100%;
 height: 100%;
-border-radius: 10px;
-background-color: midnightblue;
+border-radius: 4px;
+background-color: #353131;
 height: fit-content;
 padding: 2%;
+font-size: 1rem;
 `;
 
 const modalTitle = styled.div`
 font-size: 5em;
 border: 1px solid black;
-border-radius: 10px;
+border-radius: 4px;
 background-color: #100e17;
 color: white;
+padding: 1%;
+font-size: 2rem;
 `;
 
 const modalFirstRow = styled.th`
 height: 10%;
 border: 1px solid grey;
-border-radius: 10px;
+border-radius: 4px;
 background-color: grey;
+padding: 1%;
 `;
 
 const tableData = styled.td`
 border: 1px solid grey;
 text-align: center;
-border-radius: 10px;
+border-radius: 4px;
 background-color: white;
+padding: 1%;
 `;
 
 const tableHeader = styled.th`
 border: 1px solid grey;
-border-radius: 10px;
+border-radius: 4px;
 background-color: grey;
+padding: 1%;
 `;
 
-const closeModal = styled.div`
+const closeModal = styled.button`
 background-color: maroon;
 height: 3%;
-width: 2%;
-font-size: 5em;
+font-size: 7em;
 position: fixed;
-right: 24%;
-top: 25.2%;
+top: 26.2%;
 color: white;
 border-radius: 50% 20% / 10% 40%;
+cursor: pointer;
 `;
 
 const a = styled.a`
