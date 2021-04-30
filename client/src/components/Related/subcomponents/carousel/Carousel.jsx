@@ -89,7 +89,7 @@ class Carousel extends React.Component {
         sortedOutfitData: newOutfitSort,
         overviewFeatures: features,
         nextVisible: relatedInformation.length > 4,
-        nextOutfitVisible: outfitInformation.length > 4,
+        nextOutfitVisible: outfitInformation.length > 3,
       });
     }
     // eslint-disable-next-line no-undef
@@ -114,6 +114,7 @@ class Carousel extends React.Component {
     const distance = (scrollWidth / sortedData.length);
     if (this.scrollRef && this.scrollRef.current) {
       this.scrollRef.current.scrollLeft += distance;
+      console.log(scrollWidth, distance);
     }
     setTimeout(() => {
       this.checkButtons();
@@ -132,6 +133,7 @@ class Carousel extends React.Component {
     const distance = (scrollWidth / sortedData.length);
     if (this.scrollRef && this.scrollRef.current) {
       this.scrollRef.current.scrollLeft -= distance;
+      console.log(scrollWidth, distance);
     }
     setTimeout(() => {
       this.checkButtons();
@@ -157,9 +159,10 @@ class Carousel extends React.Component {
     this.setState({
       buttonDisable: true,
     });
-    const distance = (scrollWidth / (sortedData.length + 1));
+    const distance = (scrollWidth / (sortedData.length + 2));
     if (this.scrollOutfitRef && this.scrollOutfitRef.current) {
       this.scrollOutfitRef.current.scrollLeft += distance;
+      console.log(scrollWidth, distance);
     }
     setTimeout(() => {
       this.checkOutfitButtons();
@@ -175,9 +178,10 @@ class Carousel extends React.Component {
     this.setState({
       buttonDisable: true,
     });
-    const distance = (scrollWidth / (sortedData.length + 1));
+    const distance = (scrollWidth / (sortedData.length + 2));
     if (this.scrollOutfitRef && this.scrollOutfitRef.current) {
       this.scrollOutfitRef.current.scrollLeft -= distance;
+      console.log(scrollWidth, distance);
     }
     setTimeout(() => {
       this.checkOutfitButtons();
