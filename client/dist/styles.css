@@ -57,7 +57,7 @@ a {
 #starModalButton {
   position: relative;
   left: 50%;
-  bottom: 7.75%;
+  bottom: 1.75%;
   cursor: pointer;
   padding-bottom: 0%;
 }
@@ -65,7 +65,7 @@ a {
 #removeOutfitButton {
   position: relative;
   left: 50%;
-  bottom: 7.75%;
+  bottom: 1.75%;
   cursor: pointer;
   padding-bottom: 0%;
 }
@@ -77,6 +77,6 @@ a {
 #plusIcon {
   position: relative;
   left: 49%;
-  bottom: 8%;
+  bottom: 2%;
   cursor: pointer;
 }

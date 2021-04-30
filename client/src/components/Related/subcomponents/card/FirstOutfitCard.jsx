@@ -25,7 +25,7 @@ class FirstOutfitCard extends React.Component {
           <div id="addToOutfitText">
             {`Add ${overviewProduct} to your Outfit.`}
           </div>
-          <styles.cardImg src={image} alt="" />
+          <styles.addToOutfitImg src={image} alt="" />
           <br />
         </styles.a>
       </styles.addToOutfitCard>
