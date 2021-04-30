@@ -7,7 +7,7 @@ import React from 'react';
 const ModalCompare = ({
   toggleModal, comparisonData, name, overviewProduct, styles,
 }) => (
-  <styles.modalDiv>
+  <styles.modalDiv onClick={() => { toggleModal(); }}>
     <styles.closeModal onClick={() => { toggleModal(); }}>X</styles.closeModal>
     <styles.modalTitle>Comparing</styles.modalTitle>
     <styles.table id="table">

@@ -114,7 +114,6 @@ class Carousel extends React.Component {
     const distance = (scrollWidth / sortedData.length);
     if (this.scrollRef && this.scrollRef.current) {
       this.scrollRef.current.scrollLeft += distance;
-      console.log(scrollWidth, distance);
     }
     setTimeout(() => {
       this.checkButtons();
@@ -133,7 +132,6 @@ class Carousel extends React.Component {
     const distance = (scrollWidth / sortedData.length);
     if (this.scrollRef && this.scrollRef.current) {
       this.scrollRef.current.scrollLeft -= distance;
-      console.log(scrollWidth, distance);
     }
     setTimeout(() => {
       this.checkButtons();
@@ -162,7 +160,6 @@ class Carousel extends React.Component {
     const distance = (scrollWidth / (sortedData.length + 2));
     if (this.scrollOutfitRef && this.scrollOutfitRef.current) {
       this.scrollOutfitRef.current.scrollLeft += distance;
-      console.log(scrollWidth, distance);
     }
     setTimeout(() => {
       this.checkOutfitButtons();
@@ -181,7 +178,6 @@ class Carousel extends React.Component {
     const distance = (scrollWidth / (sortedData.length + 2));
     if (this.scrollOutfitRef && this.scrollOutfitRef.current) {
       this.scrollOutfitRef.current.scrollLeft -= distance;
-      console.log(scrollWidth, distance);
     }
     setTimeout(() => {
       this.checkOutfitButtons();
