@@ -27,8 +27,20 @@ padding-bottom: 8%;
 box-sizing: border-box;
   `;
 
-const outfitCarouselDiv = styled(carouselDiv)`
+const outfitCarouselDiv = styled.div`
 top: -2%;
+overflow-x: hidden;
+overflow-y: hidden;
+scroll-behavior: smooth;
+position: relative;
+height: 100%;
+width: 52%;
+margin-left: 23%;
+margin-right: 23%;
+display: flex;
+padding-top: 1%;
+padding-bottom: 8%;
+box-sizing: border-box;
 `;
 
 const cardComponentDiv = styled.div`
@@ -90,8 +102,17 @@ const navButtons = styled.button`
   border-radius: 4px;
   cursor: pointer;
   `;
-const navOutfitButtons = styled(navButtons)`
+const navOutfitButtons = styled.button`
   background-color: #100e17;
+  border: none;
+  color: white;
+  padding: 40% 16px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  border-radius: 4px;
+  cursor: pointer;
   `;
 
 const modalDiv = styled.div`
