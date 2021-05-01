@@ -1,4 +1,5 @@
 import React from 'react';
+import Styles from './styles.js'
 
 class ReviewPosts extends React.Component {
   constructor(props) {
@@ -10,21 +11,20 @@ class ReviewPosts extends React.Component {
   }
 
   change(e) {
-    console.log(e.target)
     this.props.changeSelected(e.target.value);
     this.props.clickTracking(`${e.target.value} in sort-drop-down`, 'Reviews');
   }
 
   render() {
     return (
-      <div className="sort-by-container">
-        <label className="sort-by-label" htmlFor="sort-by">{this.props.data.reviews.reviews.results.length} reviews, sorted by</label>
-        <select onChange={this.change} name="sort-by" className="sort-by" value={this.props.selected}>
+      <Styles.SortByContainer>
+        <Styles.SortByLabel htmlFor="sort-by">{this.props.data.reviews.reviews.results.length} reviews, sorted by</Styles.SortByLabel>
+        <Styles.SortBy onChange={this.change} className="sort-by" name="sort-by" value={this.props.selected}>
           <option value="relavance">relevance</option>
           <option value="helpfulness">helpfulness</option>
           <option value="newest">newest</option>
-        </select>
-      </div>
+        </Styles.SortBy>
+      </Styles.SortByContainer>
     );
   }
 }

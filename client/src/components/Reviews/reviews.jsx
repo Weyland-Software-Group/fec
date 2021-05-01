@@ -161,6 +161,7 @@ class Reviews extends React.Component {
           {renderReviewPosts()}
           <div className="reviews-btn-row">
             <MoreReviews
+              className="more-reviews"
               clickTracking={this.props.clickHandler}
               prevPosts={this.state.showPosts}
               addPosts={this.addPosts}

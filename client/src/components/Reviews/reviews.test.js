@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { render, cleanup } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
+import { mount } from 'enzyme';
 import renderer from 'react-test-renderer';
 
 import sampleData from '../sampleData';
@@ -37,14 +38,16 @@ it('matches snapshot', () => {
   expect(tree).toMatchSnapshot();
 });
 
-// it('renders only two reviews by default', () => {
-//   const { getByTestId } = render(<Reviews data={sampleData} />);
-//   expect(getByTestId('reviews'));
-// });
+it('renders only two reviews by default', () => {
+  const component = renderer.create(<Reviews data={sampleData} />).getInstance();
+  expect(component.state.showPosts).toBe(2);
+});
 
+it('renders two more review posts when "More Reviews" is clicked', () => {
+  const component = mount(<Reviews data={sampleData} />);
+  component.find('.more-reviews').simulate('click');
 
-// describe('Reviews', () => {
-//   it('renders more reviews when "more reviews" btn is clicked', () => {
+  expect(component.state('showPosts')).toBe(4);
 
-//   });
-// });
+  component.unmount();
+});

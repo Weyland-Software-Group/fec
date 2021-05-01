@@ -219,8 +219,14 @@ class App extends React.Component {
     }
     return (
       <div>
-        {this.state.overview
-          ? <Overview data={this.state.data} key={Math.random() * 1000000} />
+        {this.state.reviews
+          ? (
+            <Overview
+              data={this.state.data}
+              key={Math.random() * 1000000}
+              toggleColorMode={this.toggleColorMode}
+            />
+          )
           : <div />}
         {this.state.reviews
           ? (
@@ -229,6 +235,7 @@ class App extends React.Component {
               key={Math.random() * 1000000}
               colorMode={this.state.colorMode}
               clickHandler={this.clickHandler}
+              colorMode={this.state.colorMode}
             />
           )
           : <div />}
