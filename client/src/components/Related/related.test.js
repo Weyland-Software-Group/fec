@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import { render, cleanup } from '@testing-library/react';
 import renderer from 'react-test-renderer';
 import styledLight from './CSS/styledLight.js';
+import styledDark from './CSS/styledDark.js';
 
 import relatedSample from './sampleData/relatedSample.js';
 import outfitSample from './sampleData/outfitSample.js';
@@ -22,9 +23,14 @@ it('renders RELATED without crashing', () => {
   ReactDOM.render(<Related data={relatedSample} outfitData={outfitSample} colorMode="light" />, div);
 });
 
-it('renders the carousels', () => {
+it('renders the carousels with styledLight without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(<Carousel data={relatedSample} outfitData={outfitSample} colorMode="light" styles={styledLight} />, div);
+});
+
+it('renders the carousels with styledDark without crashing', () => {
+  const div = document.createElement('div');
+  ReactDOM.render(<Carousel data={relatedSample} outfitData={outfitSample} colorMode="light" styles={styledDark} />, div);
 });
 
 it('renders the Add to Outfit card', () => {
