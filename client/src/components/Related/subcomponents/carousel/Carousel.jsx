@@ -106,7 +106,7 @@ class Carousel extends React.Component {
     this.setState({
       buttonDisable: true,
     });
-    const distance = (scrollWidth / (sortedData.length + 2));
+    const distance = (scrollWidth / (sortedData.length + 1));
     if (this.scrollOutfitRef && this.scrollOutfitRef.current) {
       this.scrollOutfitRef.current.scrollLeft += distance;
     }
@@ -124,7 +124,7 @@ class Carousel extends React.Component {
     this.setState({
       buttonDisable: true,
     });
-    const distance = (scrollWidth / (sortedData.length + 2));
+    const distance = (scrollWidth / (sortedData.length + 1));
     if (this.scrollOutfitRef && this.scrollOutfitRef.current) {
       this.scrollOutfitRef.current.scrollLeft -= distance;
     }
