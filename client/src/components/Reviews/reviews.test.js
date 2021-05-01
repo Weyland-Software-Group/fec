@@ -5,10 +5,13 @@ import '@testing-library/jest-dom/extend-expect';
 import renderer from 'react-test-renderer';
 
 import sampleData from '../sampleData';
+<<<<<<< HEAD
 import Reviews from './reviews.jsx';
 import RatingsReviews from './ratings-reviews.jsx';
 import MoreReviews from './more-reviews.jsx';
 import AddReview from './add-review.jsx';
+=======
+>>>>>>> updates to tests
 
 afterEach(cleanup);
 
