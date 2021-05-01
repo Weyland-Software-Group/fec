@@ -28,11 +28,7 @@ class CardStateful extends React.Component {
 
   toggleModal() {
     const { modalVisible } = this.state;
-    if (modalVisible === true) {
-      this.setState({ modalVisible: false });
-    } else {
-      this.setState({ modalVisible: true });
-    }
+    this.setState({ modalVisible: !modalVisible });
   }
 
   sortModalData() {
@@ -41,34 +37,31 @@ class CardStateful extends React.Component {
       cardProductFeatures,
     } = this.props;
 
-    const dataForTable = [];
-
-    overviewFeatures.forEach((item) => {
-      dataForTable.push({ featureToCompare: item.feature, overviewValue: item.value });
+    const configuredCardFeatures = {};
+    cardProductFeatures.forEach((item) => {
+      configuredCardFeatures[item.feature] = item.value;
     });
+    const tableData = [];
 
-    for (let i = 0; i < dataForTable.length; i += 1) {
-      cardProductFeatures.forEach((cardItem) => {
-        if (cardItem.feature === dataForTable[i].featureToCompare) {
-          dataForTable[i].cardValue = cardItem.value;
-        }
+    Object.keys(overviewFeatures).forEach((key) => {
+      tableData.push({
+        featureToCompare: key,
+        overviewValue: overviewFeatures[key],
+        cardValue: configuredCardFeatures[key] || '',
       });
-    }
-
-    cardProductFeatures.forEach((cardItem) => {
-      let unique = true;
-      for (let i = 0; i < dataForTable.length; i += 1) {
-        if (cardItem.feature === dataForTable[i].featureToCompare) {
-          unique = false;
-        }
-      }
-      if (unique === true) {
-        dataForTable.push({ featureToCompare: cardItem.feature, cardValue: cardItem.value });
+    });
+    Object.keys(configuredCardFeatures).forEach((key) => {
+      if (!overviewFeatures[key]) {
+        tableData.push({
+          featureToCompare: key,
+          overviewValue: '',
+          cardValue: configuredCardFeatures[key],
+        });
       }
     });
 
     this.setState({
-      comparisonData: dataForTable,
+      comparisonData: tableData,
     });
   }
 
@@ -122,8 +115,11 @@ class CardStateful extends React.Component {
     const {
       modalVisible, comparisonData, starMap, reviewCount,
     } = this.state;
+    const {
+      CardComponentDiv, A, SalePrice, DefaultPriceStrike, CardImg,
+    } = styles;
     return (
-      <styles.cardComponentDiv>
+      <CardComponentDiv>
         <i
           className="fas fa-star fa-5x"
           id="starModalButton"
@@ -133,18 +129,18 @@ class CardStateful extends React.Component {
           }}
         />
         <br />
-        <styles.a id="a" href={`/products/${id}/`} onClick={() => { clickHandler(`nav to product page: ${name} id: ${id}`); }}>
+        <A id="a" href={`/products/${id}/`} onClick={() => { clickHandler(`nav to product page: ${name} id: ${id}`); }}>
           <span>{name}</span>
           <br />
           {salePrice ? (
             <div id="salePriceText">
-              <styles.salePrice>{`$${salePrice}`}</styles.salePrice>
-              <styles.defaultPriceStrike>{`$${defaultPrice}`}</styles.defaultPriceStrike>
+              <SalePrice>{`$${salePrice}`}</SalePrice>
+              <DefaultPriceStrike>{`$${defaultPrice}`}</DefaultPriceStrike>
             </div>
           ) : <span>{`$${defaultPrice}`}</span>}
-          <styles.cardImg src={image} alt="" />
+          <CardImg src={image} alt="" />
           <br />
-        </styles.a>
+        </A>
         {starMap.length > 0 ? (
           <Stars
             starMap={starMap}
@@ -162,7 +158,7 @@ class CardStateful extends React.Component {
             styles={styles}
           />
         ) : null}
-      </styles.cardComponentDiv>
+      </CardComponentDiv>
     );
   }
 }

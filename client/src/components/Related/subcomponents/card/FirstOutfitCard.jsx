@@ -18,17 +18,18 @@ class FirstOutfitCard extends React.Component {
     const {
       overviewProduct, image, id, addToOutfit, clickHandler, styles,
     } = this.props;
+    const { AddToOutfitCard, A, AddToOutfitImg } = styles;
     return (
-      <styles.addToOutfitCard>
-        <styles.a onClick={() => { addToOutfit(id); clickHandler(`added to outfit: ${overviewProduct} id: ${id}`); }} id="addToOutfit">
+      <AddToOutfitCard>
+        <A onClick={() => { addToOutfit(id); clickHandler(`added to outfit: ${overviewProduct} id: ${id}`); }} id="addToOutfit">
           <i className="fas fa-plus fa-5x" id="plusIcon" />
           <div id="addToOutfitText">
             {`Add ${overviewProduct} to your Outfit.`}
           </div>
-          <styles.addToOutfitImg src={image} alt="" />
+          <AddToOutfitImg src={image} alt="" />
           <br />
-        </styles.a>
-      </styles.addToOutfitCard>
+        </A>
+      </AddToOutfitCard>
     );
   }
 }

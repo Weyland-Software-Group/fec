@@ -1,17 +1,17 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import styled from 'styled-components';
 
-const carouselWrapperDiv = styled.div`
+const CarouselWrapperDiv = styled.div`
 background-color: #f7f7f7;
 position: relative;
 width: 100%;
 height: 550px;
 `;
 
-const OutfitWrapperDiv = styled(carouselWrapperDiv)`
+const OutfitWrapperDiv = styled(CarouselWrapperDiv)`
 `;
 
-const carouselDiv = styled.div`
+const CarouselDiv = styled.div`
 overflow-x: hidden;
 overflow-y: hidden;
 scroll-behavior: smooth;
@@ -27,7 +27,7 @@ padding-bottom: 8%;
 box-sizing: border-box;
   `;
 
-const outfitCarouselDiv = styled.div`
+const OutfitCarouselDiv = styled.div`
 top: -2%;
 overflow-x: hidden;
 overflow-y: hidden;
@@ -43,7 +43,7 @@ padding-bottom: 8%;
 box-sizing: border-box;
 `;
 
-const cardComponentDiv = styled.div`
+const CardComponentDiv = styled.div`
 background-color: #f7f7f7;
 color: black;
 text-align: center;
@@ -58,25 +58,25 @@ margin-left: 2.5%;
 font-size: .2em;
   `;
 
-const outfitCardComponentDiv = styled(cardComponentDiv)``;
+const OutfitCardComponentDiv = styled(CardComponentDiv)``;
 
-const addToOutfitCard = styled(cardComponentDiv)``;
+const AddToOutfitCard = styled(CardComponentDiv)``;
 
-const nextComponentDiv = styled.div`
+const NextComponentDiv = styled.div`
   position: absolute;
   top: 40%;
   right: 21%;
   z-index: 10;
   `;
 
-const prevComponentDiv = styled.div`
+const PrevComponentDiv = styled.div`
   position: absolute;
   top: 40%;
   left: 19%;
   z-index: 10;
   `;
 
-const cardImg = styled.img`
+const CardImg = styled.img`
 padding-top: 5%;
 height: 72%;
 width: 89%;
@@ -85,12 +85,12 @@ margin: auto;
 border-radius: 100px;
   `;
 
-const addToOutfitImg = styled(cardImg)`
+const AddToOutfitImg = styled(CardImg)`
 position: relative;
 top: 3%;
   `;
 
-const navButtons = styled.button`
+const NavButtons = styled.button`
   background-color: midnightblue;
   border: none;
   color: white;
@@ -102,7 +102,7 @@ const navButtons = styled.button`
   border-radius: 4px;
   cursor: pointer;
   `;
-const navOutfitButtons = styled.button`
+const NavOutfitButtons = styled.button`
   background-color: #100e17;
   border: none;
   color: white;
@@ -115,7 +115,7 @@ const navOutfitButtons = styled.button`
   cursor: pointer;
   `;
 
-const modalDiv = styled.div`
+const ModalDiv = styled.div`
 text-align: center;
 border-radius: 6px;
 font-family: Verdana;
@@ -130,16 +130,16 @@ left: 0%;
 overflow-y: hidden;
 `;
 
-const salePrice = styled.span`
+const SalePrice = styled.span`
 color: red;
 margin-right: 10%;
 `;
 
-const defaultPriceStrike = styled.span`
+const DefaultPriceStrike = styled.span`
 text-decoration: line-through;
 `;
 
-const table = styled.table`
+const Table = styled.table`
 border: 1px solid grey;
 width: 100%;
 height: 100%;
@@ -150,7 +150,7 @@ padding: 2%;
 font-size: 1rem;
 `;
 
-const modalTitle = styled.div`
+const ModalTitle = styled.div`
 font-size: 5em;
 border: 1px solid black;
 border-radius: 4px;
@@ -160,7 +160,7 @@ padding: 1%;
 font-size: 2rem;
 `;
 
-const modalFirstRow = styled.th`
+const ModalFirstRow = styled.th`
 height: 10%;
 border: 1px solid grey;
 border-radius: 4px;
@@ -168,7 +168,7 @@ background-color: grey;
 padding: 1%;
 `;
 
-const tableData = styled.td`
+const TableData = styled.td`
 border: 1px solid grey;
 text-align: center;
 border-radius: 4px;
@@ -176,14 +176,14 @@ background-color: white;
 padding: 1%;
 `;
 
-const tableHeader = styled.th`
+const TableHeader = styled.th`
 border: 1px solid grey;
 border-radius: 4px;
 background-color: grey;
 padding: 1%;
 `;
 
-const closeModal = styled.button`
+const CloseModal = styled.button`
 background-color: maroon;
 height: 3%;
 font-size: 7em;
@@ -195,34 +195,34 @@ border-radius: 50% 20% / 10% 40%;
 cursor: pointer;
 `;
 
-const a = styled.a`
+const A = styled.a`
 color: black;
 `;
 
 const styledLight = {
-  a,
-  addToOutfitImg,
-  addToOutfitCard,
-  modalFirstRow,
-  modalTitle,
-  closeModal,
+  A,
+  AddToOutfitImg,
+  AddToOutfitCard,
+  ModalFirstRow,
+  ModalTitle,
+  CloseModal,
   OutfitWrapperDiv,
-  carouselWrapperDiv,
-  carouselDiv,
-  cardComponentDiv,
-  nextComponentDiv,
-  prevComponentDiv,
-  cardImg,
-  navOutfitButtons,
-  navButtons,
-  modalDiv,
-  table,
-  tableData,
-  tableHeader,
-  salePrice,
-  defaultPriceStrike,
-  outfitCardComponentDiv,
-  outfitCarouselDiv,
+  CarouselWrapperDiv,
+  CarouselDiv,
+  CardComponentDiv,
+  NextComponentDiv,
+  PrevComponentDiv,
+  CardImg,
+  NavOutfitButtons,
+  NavButtons,
+  ModalDiv,
+  Table,
+  TableData,
+  TableHeader,
+  SalePrice,
+  DefaultPriceStrike,
+  OutfitCardComponentDiv,
+  OutfitCarouselDiv,
 };
 
 export default styledLight;
