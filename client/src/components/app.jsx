@@ -111,9 +111,9 @@ class App extends React.Component {
   toggleColorMode() {
     const { colorMode } = this.state;
     if (colorMode === 'light') {
-      this.setState({ colorMode: 'dark' }, () => { console.log(colorMode); });
+      this.setState({ colorMode: 'dark' });
     } else {
-      this.setState({ colorMode: 'light' }, () => { console.log(colorMode); });
+      this.setState({ colorMode: 'light' });
     }
   }
 
