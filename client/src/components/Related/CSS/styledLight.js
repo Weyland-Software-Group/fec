@@ -76,6 +76,14 @@ const PrevComponentDiv = styled.div`
   z-index: 10;
   `;
 
+const NextOutfitDiv = styled(NextComponentDiv)`
+top: 30%
+`;
+
+const PrevOutfitDiv = styled(PrevComponentDiv)`
+top: 30%
+`;
+
 const CardImg = styled.img`
 padding-top: 5%;
 height: 72%;
@@ -103,7 +111,7 @@ const NavButtons = styled.button`
   cursor: pointer;
   `;
 const NavOutfitButtons = styled.button`
-  background-color: #100e17;
+  background-color: midnightblue;
   border: none;
   color: white;
   padding: 40% 16px;
@@ -215,6 +223,8 @@ const styledLight = {
   CardImg,
   NavOutfitButtons,
   NavButtons,
+  NextOutfitDiv,
+  PrevOutfitDiv,
   ModalDiv,
   Table,
   TableData,

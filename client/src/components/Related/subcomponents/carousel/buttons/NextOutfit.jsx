@@ -3,11 +3,11 @@
 import React from 'react';
 
 const NextOutfit = ({ scroll, className, styles }) => {
-  const { NextComponentDiv, NavOutfitButtons } = styles;
+  const { NextOutfitDiv, NavOutfitButtons } = styles;
   return (
-    <NextComponentDiv className={className}>
+    <NextOutfitDiv className={className}>
       <NavOutfitButtons type="btn" onClick={() => { scroll(); }}>{'>'}</NavOutfitButtons>
-    </NextComponentDiv>
+    </NextOutfitDiv>
   );
 };
 

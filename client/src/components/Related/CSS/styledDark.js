@@ -66,16 +66,24 @@ const AddToOutfitCard = styled(CardComponentDiv)``;
 
 const NextComponentDiv = styled.div`
   position: absolute;
-  top: 34%;
+  top: 40%;
   right: 21%;
   z-index: 10;
   `;
 
 const PrevComponentDiv = styled.div`
   position: absolute;
-  top: 34%;
+  top: 40%;
   left: 19%;
   z-index: 10;
+`;
+
+const NextOutfitDiv = styled(NextComponentDiv)`
+top: 30%
+`;
+
+const PrevOutfitDiv = styled(PrevComponentDiv)`
+top: 30%
 `;
 
 const CardImg = styled.img`
@@ -217,6 +225,8 @@ const styledDark = {
   CardImg,
   NavOutfitButtons,
   NavButtons,
+  NextOutfitDiv,
+  PrevOutfitDiv,
   ModalDiv,
   Table,
   TableData,

@@ -252,6 +252,7 @@ class App extends React.Component {
               removeFromOutfit={this.removeFromOutfit}
               key={Math.random() * 1000000}
               colorMode={this.state.colorMode}
+              toggleColorMode={this.toggleColorMode}
               clickHandler={(element) => {
                 this.clickHandler(element, 'Related');
               }}

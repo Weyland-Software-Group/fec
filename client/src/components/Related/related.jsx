@@ -14,16 +14,20 @@ class Related extends React.Component {
     super(props);
 
     this.colorMode = this.colorMode.bind(this);
-
+    const { colorMode } = this.props;
     this.state = {
-      colorMode: 'dark',
-      styles: styledDark,
+      colorMode,
+      styles: styledLight,
     };
+  }
+
+  componentDidMount() {
+    this.colorMode();
   }
 
   colorMode() {
     const { colorMode } = this.state;
-    if (colorMode === 'light') {
+    if (colorMode === 'dark') {
       this.setState({
         colorMode: 'dark',
         styles: styledDark,
@@ -38,12 +42,12 @@ class Related extends React.Component {
 
   render() {
     const {
-      data, outfitData, refreshOutfit, addToOutfit, removeFromOutfit, clickHandler,
+      data, outfitData, refreshOutfit, addToOutfit, removeFromOutfit, clickHandler, toggleColorMode,
     } = this.props;
     const { styles } = this.state;
     return (
       <div id="related">
-        <button onClick={() => { this.colorMode(); }} type="button">Light/Dark</button>
+        <button onClick={() => { toggleColorMode(); }} type="button">Light/Dark Demo</button>
         <Carousel
           data-testid="carousel"
           data={data}
