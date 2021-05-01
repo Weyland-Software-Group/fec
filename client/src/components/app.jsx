@@ -111,9 +111,9 @@ class App extends React.Component {
   toggleColorMode() {
     const { colorMode } = this.state;
     if (colorMode === 'light') {
-      this.setState({ colorMode: 'dark' });
+      this.setState({ colorMode: 'dark' }, () => { console.log(colorMode); });
     } else {
-      this.setState({ colorMode: 'light' });
+      this.setState({ colorMode: 'light' }, () => { console.log(colorMode); });
     }
   }
 
@@ -221,7 +221,13 @@ class App extends React.Component {
     return (
       <div>
         {this.state.overview
-          ? <Overview data={this.state.data} key={Math.random() * 1000000} />
+          ? (
+            <Overview
+              data={this.state.data}
+              toggleColorMode={this.toggleColorMode}
+              key={Math.random() * 1000000}
+            />
+          )
           : <div />}
         {this.state.reviews
           ? (
