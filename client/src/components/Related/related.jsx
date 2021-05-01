@@ -45,6 +45,7 @@ class Related extends React.Component {
       <div id="related">
         <button onClick={() => {this.colorMode(); }} type="button">Light/Dark</button>
         <Carousel
+          data-testid="carousel"
           data={data}
           outfitData={outfitData}
           refreshOutfit={refreshOutfit}
