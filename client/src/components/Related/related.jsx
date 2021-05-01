@@ -43,7 +43,7 @@ class Related extends React.Component {
     const { styles } = this.state;
     return (
       <div id="related">
-        <button onClick={() => {this.colorMode(); }} type="button">Light/Dark</button>
+        <button onClick={() => { this.colorMode(); }} type="button">Light/Dark</button>
         <Carousel
           data-testid="carousel"
           data={data}
