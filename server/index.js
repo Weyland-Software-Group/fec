@@ -97,5 +97,5 @@ app.post('/interactions', (req, res) => {
 app.post('/cart', APIControllers.cartAdd);
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
+  console.log(`App listening at http://localhost:${port}`);
 });
