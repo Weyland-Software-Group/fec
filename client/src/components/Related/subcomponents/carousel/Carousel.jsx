@@ -9,7 +9,7 @@ import PrevOutfit from './buttons/PrevOutfit.jsx';
 import CardStateful from '../card/CardStateful.jsx';
 import FirstOutfitCard from '../card/FirstOutfitCard.jsx';
 import OutfitCardStateful from '../card/OutfitCardStateful.jsx';
-import styles from '../../styled.js';
+import deserialize from './dataTransformer.js';
 
 class Carousel extends React.Component {
   constructor(props) {
@@ -40,60 +40,8 @@ class Carousel extends React.Component {
 
   componentDidMount() {
     const { data, outfitData } = this.props;
-    const { features } = data.product;
-    const {
-      relatedIds, relatedInformation, relatedStyles, relatedReviews,
-    } = data.related;
-    const { outfitInformation, outfitStyles, outfitReviews } = outfitData;
-    const newSort = [];
-    const newOutfitSort = [];
-    for (let i = 0; i < relatedIds.length; i += 1) {
-      for (let ii = 0; ii < relatedStyles[i].results.length; ii += 1) {
-        if (relatedStyles[i].results[ii]['default?'] === true) {
-          newSort.push({
-            relatedInformation: relatedInformation[i],
-            relatedStyles: relatedStyles[i],
-            defaultStyle: relatedStyles[i].results[ii],
-            reviews: relatedReviews[i],
-          });
-          break;
-        } else if (ii === relatedStyles[i].results.length - 1 && newSort[i] === undefined) {
-          newSort.push({
-            relatedInformation: relatedInformation[i],
-            relatedStyles: relatedStyles[i],
-            defaultStyle: relatedStyles[i].results[0],
-            reviews: relatedReviews[i],
-          });
-        }
-      }
-    }
-    if (outfitInformation) {
-      for (let i = 0; i < outfitInformation.length; i += 1) {
-        newOutfitSort.push({
-          outfitInformation: outfitInformation[i],
-          outfitStyles: outfitStyles[i],
-          reviews: outfitReviews[i],
-        });
-      }
-    }
-    if (outfitInformation === undefined) {
-      this.setState({
-        sortedData: newSort,
-        sortedOutfitData: newOutfitSort,
-        overviewFeatures: features,
-        nextVisible: relatedInformation.length > 4,
-        nextOutfitVisible: false,
-      });
-    } else {
-      this.setState({
-        sortedData: newSort,
-        sortedOutfitData: newOutfitSort,
-        overviewFeatures: features,
-        nextVisible: relatedInformation.length > 4,
-        nextOutfitVisible: outfitInformation.length > 4,
-      });
-    }
-    // eslint-disable-next-line no-undef
+    const newstate = deserialize(data, outfitData);
+    this.setState(newstate);
   }
 
   checkButtons() {
@@ -203,18 +151,22 @@ class Carousel extends React.Component {
     const { name, id } = this.props.data.product;
     const { results } = this.props.data.styles;
     const {
-      refreshOutfit, addToOutfit, removeFromOutfit, clickHandler,
+      refreshOutfit, addToOutfit, removeFromOutfit, clickHandler, styles,
     } = this.props;
+    const {
+      CarouselWrapperDiv, CarouselDiv, OutfitWrapperDiv, OutfitCarouselDiv,
+    } = styles;
     return (
       <div>
-        <styles.carouselWrapperDiv>
+        <CarouselWrapperDiv>
           {prevVisible ? (
             <Prev
               scroll={this.scrollPrev}
               className={buttonDisable ? 'disabled' : null}
+              styles={styles}
             />
           ) : null}
-          <styles.carouselDiv ref={this.scrollRef}>
+          <CarouselDiv ref={this.scrollRef}>
 
             {sortedData.map(({
               relatedInformation, relatedStyles, defaultStyle, reviews,
@@ -234,25 +186,28 @@ class Carousel extends React.Component {
                 overviewProduct={name}
                 overviewId={id}
                 clickHandler={clickHandler}
+                styles={styles}
               />
             ))}
-          </styles.carouselDiv>
+          </CarouselDiv>
           {nextVisible ? (
             <Next
               scroll={this.scrollNext}
               className={buttonDisable ? 'disabled' : null}
+              styles={styles}
             />
           ) : null}
-        </styles.carouselWrapperDiv>
-        <br />
-        <styles.OutfitWrapperDiv>
+        </CarouselWrapperDiv>
+
+        <OutfitWrapperDiv>
           {prevOutfitVisible ? (
             <PrevOutfit
               scroll={this.scrollOutfitPrev}
               className={buttonDisable ? 'disabled' : null}
+              styles={styles}
             />
           ) : null}
-          <styles.carouselDiv ref={this.scrollOutfitRef}>
+          <OutfitCarouselDiv ref={this.scrollOutfitRef}>
             <FirstOutfitCard
               overviewProduct={name}
               id={id}
@@ -260,6 +215,7 @@ class Carousel extends React.Component {
               addToOutfit={addToOutfit}
               refreshOutfit={refreshOutfit}
               clickHandler={clickHandler}
+              styles={styles}
             />
             {sortedOutfitData.map(({
               outfitInformation, outfitStyles, reviews,
@@ -277,16 +233,18 @@ class Carousel extends React.Component {
                 reviews={reviews.results}
                 removeFromOutfit={removeFromOutfit}
                 clickHandler={clickHandler}
+                styles={styles}
               />
             ))}
-          </styles.carouselDiv>
+          </OutfitCarouselDiv>
           {nextOutfitVisible ? (
             <NextOutfit
               scroll={this.scrollOutfitNext}
               className={buttonDisable ? 'disabled' : null}
+              styles={styles}
             />
           ) : null}
-        </styles.OutfitWrapperDiv>
+        </OutfitWrapperDiv>
       </div>
     );
   }

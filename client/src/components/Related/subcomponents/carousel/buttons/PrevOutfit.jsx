@@ -1,12 +1,14 @@
 /* eslint-disable import/extensions */
 /* eslint-disable react/prop-types */
 import React from 'react';
-import styles from '../../../styled.js';
 
-const PrevOutfit = ({ scroll, className }) => (
-  <styles.prevComponentDiv className={className}>
-    <styles.navOutfitButtons type="button" onClick={() => { scroll(); }}>{'<'}</styles.navOutfitButtons>
-  </styles.prevComponentDiv>
-);
+const PrevOutfit = ({ scroll, className, styles }) => {
+  const { PrevOutfitDiv, NavOutfitButtons } = styles;
+  return (
+    <PrevOutfitDiv className={className}>
+      <NavOutfitButtons type="button" onClick={() => { scroll(); }}>{'<'}</NavOutfitButtons>
+    </PrevOutfitDiv>
+  );
+};
 
 export default PrevOutfit;

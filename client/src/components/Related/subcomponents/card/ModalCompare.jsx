@@ -3,31 +3,35 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 // eslint-disable-next-line import/extensions
-import styles from '../../styled.js';
 
 const ModalCompare = ({
-  toggleModal, comparisonData, name, overviewProduct,
-}) => (
-  <styles.modalDiv>
-    <styles.closeModal onClick={() => { toggleModal(); }}>X</styles.closeModal>
-    <styles.modalTitle>Comparing</styles.modalTitle>
-    <styles.table id="table">
-      <tbody>
-        <tr>
-          <styles.modalFirstRow scope="col">{overviewProduct}</styles.modalFirstRow>
-          <styles.modalFirstRow scope="col">Feature</styles.modalFirstRow>
-          <styles.modalFirstRow scope="col">{name}</styles.modalFirstRow>
-        </tr>
-        {comparisonData.map(({ featureToCompare, overviewValue, cardValue }) => (
-          <tr key={featureToCompare}>
-            <styles.tableData>{overviewValue}</styles.tableData>
-            <styles.tableHeader>{featureToCompare}</styles.tableHeader>
-            <styles.tableData>{cardValue}</styles.tableData>
+  toggleModal, comparisonData, name, overviewProduct, styles,
+}) => {
+  const {
+    ModalDiv, CloseModal, ModalTitle, Table, ModalFirstRow, TableData, TableHeader,
+  } = styles;
+  return (
+    <ModalDiv onClick={() => { toggleModal(); }}>
+      <CloseModal onClick={() => { toggleModal(); }}>X</CloseModal>
+      <ModalTitle>Comparing</ModalTitle>
+      <Table id="table">
+        <tbody>
+          <tr>
+            <ModalFirstRow scope="col">{overviewProduct}</ModalFirstRow>
+            <ModalFirstRow scope="col">Feature</ModalFirstRow>
+            <ModalFirstRow scope="col">{name}</ModalFirstRow>
           </tr>
-        ))}
-      </tbody>
-    </styles.table>
-  </styles.modalDiv>
-);
+          {comparisonData.map(({ featureToCompare, overviewValue, cardValue }) => (
+            <tr key={featureToCompare}>
+              <TableData>{overviewValue}</TableData>
+              <TableHeader>{featureToCompare}</TableHeader>
+              <TableData>{cardValue}</TableData>
+            </tr>
+          ))}
+        </tbody>
+      </Table>
+    </ModalDiv>
+  );
+};
 
 export default ModalCompare;

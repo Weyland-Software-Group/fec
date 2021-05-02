@@ -1,12 +1,14 @@
 /* eslint-disable import/extensions */
 /* eslint-disable react/prop-types */
 import React from 'react';
-import styles from '../../../styled.js';
 
-const Prev = ({ scroll, className }) => (
-  <styles.prevComponentDiv className={className}>
-    <styles.navButtons type="btn" onClick={() => { scroll(); }}>{'<'}</styles.navButtons>
-  </styles.prevComponentDiv>
-);
+const Prev = ({ scroll, className, styles }) => {
+  const { PrevComponentDiv, NavButtons } = styles;
+  return (
+    <PrevComponentDiv className={className}>
+      <NavButtons type="btn" onClick={() => { scroll(); }}>{'<'}</NavButtons>
+    </PrevComponentDiv>
+  );
+};
 
 export default Prev;

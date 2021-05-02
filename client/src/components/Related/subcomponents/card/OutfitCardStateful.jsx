@@ -5,7 +5,6 @@
 /* eslint-disable import/extensions */
 /* eslint-disable react/prop-types */
 import React from 'react';
-import styles from '../../styled.js';
 import Stars from './Stars.jsx';
 
 class OutfitCardStateful extends React.Component {
@@ -65,27 +64,30 @@ class OutfitCardStateful extends React.Component {
       id,
       removeFromOutfit,
       clickHandler,
+      styles,
     } = this.props;
-
     const {
       starMap, reviewCount,
     } = this.state;
+    const {
+      OutfitCardComponentDiv, A, SalePrice, DefaultPriceStrike, CardImg,
+    } = styles;
     return (
-      <styles.outfitCardComponentDiv>
+      <OutfitCardComponentDiv>
         <i className="far fa-times-circle fa-5x" id="removeOutfitButton" onClick={() => { removeFromOutfit(id); clickHandler(`removed from outfit: ${name} id: ${id}`); }}></i>
         <br />
-        <a href={`/products/${id}/`} onClick={() => { clickHandler(`nav to product page: ${name} id: ${id}`); }}>
+        <A id="a" href={`/products/${id}/`} onClick={() => { clickHandler(`nav to product page: ${name} id: ${id}`); }}>
           <span>{name}</span>
           <br />
           {salePrice ? (
             <div id="salePriceText">
-              <styles.salePrice>{`$${salePrice}`}</styles.salePrice>
-              <styles.defaultPriceStrike>{`$${defaultPrice}`}</styles.defaultPriceStrike>
+              <SalePrice>{`$${salePrice}`}</SalePrice>
+              <DefaultPriceStrike>{`$${defaultPrice}`}</DefaultPriceStrike>
             </div>
           ) : <span>{`$${defaultPrice}`}</span>}
-          <styles.cardImg src={image} alt="" />
+          <CardImg src={image} alt="" />
           <br />
-        </a>
+        </A>
         {starMap.length > 0 ? (
           <Stars
             starMap={starMap}
@@ -94,7 +96,7 @@ class OutfitCardStateful extends React.Component {
           />
         ) : null}
         <span>{category}</span>
-      </styles.outfitCardComponentDiv>
+      </OutfitCardComponentDiv>
     );
   }
 }
