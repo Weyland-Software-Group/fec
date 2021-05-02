@@ -1,4 +1,5 @@
 import React from 'react';
+import $ from 'jquery';
 
 class Modal extends React.Component {
   constructor(props) {
@@ -101,18 +102,18 @@ class Modal extends React.Component {
               <this.props.styles.TertiaryTitle>
                 Your Question*
               </this.props.styles.TertiaryTitle>
-              <this.props.styles.LargeInput onChange={this.handleQuestion.bind(this)} />
+              <this.props.styles.LargeInput onChange={this.handleQuestion.bind(this)} data-testid="QuestionText"/>
               <this.props.styles.TertiaryTitle>What is your nickname?*</this.props.styles.TertiaryTitle>
-              <this.props.styles.NormalInput onChange={this.handleNick.bind(this)} />
+              <this.props.styles.NormalInput onChange={this.handleNick.bind(this)} data-testid="Nick"/>
               <this.props.styles.QuarternaryTitle>
                 For privacy reasons, do not use your full name or email address
               </this.props.styles.QuarternaryTitle>
               <this.props.styles.TertiaryTitle>Your email*</this.props.styles.TertiaryTitle>
-              <this.props.styles.NormalInput onChange={this.handleEmail.bind(this)} />
-              <this.props.styles.SubmitButton onClick={this.submitQuestion.bind(this)}>
+              <this.props.styles.NormalInput onChange={this.handleEmail.bind(this)} data-testid="Email" />
+              <this.props.styles.SubmitButton onClick={this.submitQuestion.bind(this)} data-testid="SubmitQuestion">
                 Submit Question
               </this.props.styles.SubmitButton>
-              <this.props.styles.WarningText>
+              <this.props.styles.WarningText data-testid="WarningText">
                 {this.state.warningText}
               </this.props.styles.WarningText>
               <this.props.styles.SuccessText>

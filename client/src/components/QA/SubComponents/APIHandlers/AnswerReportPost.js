@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 const AnswerReportPost = (answerID, callback) => {
   $.ajax({
     url: `/qa/answers/${answerID}/report`,
