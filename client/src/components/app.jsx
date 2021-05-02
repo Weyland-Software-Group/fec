@@ -225,7 +225,12 @@ class App extends React.Component {
             <Overview
               data={this.state.data}
               key={Math.random() * 1000000}
+              outfitData={this.state.outfitData}
+              refreshOutfit={this.refreshOutfit}
+              addToOutfit={this.addToOutfit}
               toggleColorMode={this.toggleColorMode}
+              ratingPercentage={this.state.ratingPercentage}
+              clickHandler={this.clickHandler}
             />
           )
           : <div />}
