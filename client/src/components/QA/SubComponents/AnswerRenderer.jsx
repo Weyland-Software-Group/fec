@@ -3,9 +3,8 @@
 /* eslint-disable react/prop-types */
 
 import React from 'react';
-import styles from './styles.js';
 import AnswerHelpfulPost from './APIHandlers/AnswerHelpfulPost';
-import AnswerReport from './APIHandlers/AnswerReport';
+import AnswerReportPost from './APIHandlers/AnswerReportPost';
 
 const moment = require('moment');
 
@@ -19,7 +18,7 @@ class AnswerRenderer extends React.Component {
       currentAnswer.answerReport = 'Report';
       answersArray.push(currentAnswer);
     }
-    answersArray.sort((a, b) => b.helpfulness - a.helpfulness);
+    answersArray.sort((a, b) => b.[this.props.sort] - a.[this.props.sort]);
     this.state = {
       answersArray,
       showAllAnswers: false,
@@ -36,7 +35,7 @@ class AnswerRenderer extends React.Component {
   }
 
   AnswerReport(answerID, identifier) {
-    AnswerReport(answerID, () => {
+    AnswerReportPost(answerID, () => {
       const { answersArray } = this.state;
       answersArray[identifier].answerReport = 'Reported';
       this.setState({ answersArray });
@@ -46,14 +45,14 @@ class AnswerRenderer extends React.Component {
   parseAnswers(answer, identifier) {
     return (
       <div key={Math.random() * 100000}>
-        <styles.AnswerText data-testid="AnswerText">
-          <styles.BoldedText>
+        <this.props.styles.AnswerText data-testid="AnswerText">
+          <this.props.styles.BoldedText>
             A:
             {' '}
-          </styles.BoldedText>
+          </this.props.styles.BoldedText>
           {answer.body}
-        </styles.AnswerText>
-        <styles.AnswerSubtitle>
+        </this.props.styles.AnswerText>
+        <this.props.styles.AnswerSubtitle>
           by
           {' '}
           {answer.answerer_name}
@@ -63,24 +62,24 @@ class AnswerRenderer extends React.Component {
           {'  |  '}
           Helpful?
           {' '}
-          <styles.HyperLink onClick={
+          <this.props.styles.HyperLink onClick={
             () => this.AnswerHelpful.bind(this)(answer.id, identifier)
             }
           >
             Yes
-          </styles.HyperLink>
+          </this.props.styles.HyperLink>
           {' '}
           (
           {answer.helpfulness}
           )
           {'  |  '}
-          <styles.HyperLink onClick={
+          <this.props.styles.HyperLink onClick={
             () => this.AnswerReport.bind(this)(answer.id, identifier)
             }
           >
             {answer.answerReport}
-          </styles.HyperLink>
-        </styles.AnswerSubtitle>
+          </this.props.styles.HyperLink>
+        </this.props.styles.AnswerSubtitle>
       </div>
     );
   }
@@ -111,14 +110,14 @@ class AnswerRenderer extends React.Component {
         { this.state.answersArray.length < 3
           ? <div />
           : (
-            <styles.LoadMoreAnswers onClick={this.showAllAnswers.bind(this)} data-testid="LoadMoreAnswers">
+            <this.props.styles.LoadMoreAnswers onClick={this.showAllAnswers.bind(this)} data-testid="LoadMoreAnswers">
               {this.state.showAllAnswers
                 ? 'COLLAPSE ANSWERS'
                 : 'LOAD MORE ANSWERS'}
-            </styles.LoadMoreAnswers>
+            </this.props.styles.LoadMoreAnswers>
           )}
         {this.state.answersArray.length === 0
-          ? <styles.AnswerText data-testid="NoAnswer"> No Answers Available for this Question.</styles.AnswerText>
+          ? <this.props.styles.AnswerText data-testid="NoAnswer"> No Answers Available for this Question.</this.props.styles.AnswerText>
           : <div />}
       </div>
     );

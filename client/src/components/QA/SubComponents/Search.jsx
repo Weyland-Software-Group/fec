@@ -5,7 +5,6 @@
 /* eslint-disable react/destructuring-assignment */
 
 import React from 'react';
-import styles from './styles.js';
 
 class Search extends React.Component {
   constructor(props) {
@@ -21,7 +20,7 @@ class Search extends React.Component {
 
   render() {
     return (
-      <styles.SearchBar type="text" id="questionSearch" placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS..." onChange={this.onChange.bind(this)} />
+      <this.props.styles.SearchBar type="text" id="questionSearch" placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS..." onChange={this.onChange.bind(this)} />
     );
   }
 }

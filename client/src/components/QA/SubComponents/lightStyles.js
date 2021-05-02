@@ -5,12 +5,15 @@ const primarySize = '1.0em';
 const secondarySize = '0.8em';
 const primaryColor = '#454444';
 const secondaryColor = '#858383';
+const oppositeColor = '#000000';
+const oppositeText = '#ffffff';
+const accentColor = '#2ada71';
 const titleFont = "'Bebas Neue', cursive";
 const primaryFont = 'Helvetica';
 
 const QA = styled.div`
   padding: 0% 8%;
-  margin-top: 10%;
+  margin-top: 4%;
   width: 80%;
   display: flex;
   flex-direction: column;
@@ -101,25 +104,34 @@ const LoadMoreAnswers = styled.div`
   font-size: ${secondarySize};
   color: ${secondaryColor};
   text-decoration: underline;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const AnswerBlock = styled.div`
 `;
 
 const SearchBarWrapper = styled.div`
-  width: 100%;
+  width: 75%;
   display: flex;
   align-items: center;
 `;
 
 const SearchBar = styled.input`
-  margin-top: 5px;
+  margin-top: 1%;
+  margin-left: 5%;
   width: 90%;
+  margin-bottom: 1%;
 `;
 
 const HyperLink = styled.a`
   color: ${secondaryColor};
   text-decoration: underline;
+  &:hover {
+    cursor: pointer;
+    color: ${oppositeColor};
+  }
 `;
 
 const ButtonContainer = styled.div`
@@ -131,12 +143,99 @@ const ButtonContainer = styled.div`
 const AddQuestionButton = styled.div`
   margin: 5px;
   font-size: ${secondarySize};
-  background: none;
+  color: ${primaryColor};
   padding: 1%;
-  border: 1.5px solid #252222;
+  border: 1.5px solid ${primaryColor};
+  display: flex;
+  justify-content: center;
+  &:hover {
+    color: ${accentColor};
+    border: 1.5px solid ${accentColor};
+  }
 `;
 
-const styles = {
+const SubmitButton = styled.div`
+  margin: 5px;
+  width: 15%;
+  font-size: ${secondarySize};
+  background: ${oppositeColor};
+  color: ${oppositeText};
+  padding: 1%;
+  border: 1.5px solid #252222;
+  display: flex;
+  justify-content: center;
+  &:hover {
+    background: ${accentColor};
+  }
+`;
+
+const ModalBackdrop = styled.div`
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,0.2);
+`;
+
+const ModalContentWrapper = styled.div`
+  position: fixed;
+  width: 30%;
+  height: 30%;
+  background: white;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2.5%;
+`;
+
+const ModalContent = styled.div`
+  font-family: ${primaryFont};
+  margin-top:5px;
+  margin-bottom: 10px;
+  font-size: ${primarySize};
+  color: ${primaryColor};
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
+
+const ModalExit = styled.div`
+  text-align: right;
+`;
+
+const LargeInput = styled.input`
+  width: 80%;
+  height: 40%;
+  margin-bottom: 2px;
+`;
+
+const NormalInput = styled.input`
+  width: 80%;
+  height: 40%;
+  margin-bottom: 2px;
+`;
+
+const WarningText = styled.div`
+  margin-top: 5px;
+  font-family: ${primaryFont};
+  font-weight: 200;
+  color: red;
+  font-size: ${secondarySize};
+`;
+
+const SuccessText = styled.div`
+  margin-top: 5px;
+  font-family: ${primaryFont};
+  font-weight: 200;
+  color: green;
+  font-size: ${secondarySize};
+`;
+
+const lightStyles = {
   Title,
   SubTitle,
   TertiaryTitle,
@@ -156,5 +255,14 @@ const styles = {
   HyperLink,
   ButtonContainer,
   AddQuestionButton,
+  SubmitButton,
+  ModalBackdrop,
+  ModalContentWrapper,
+  ModalContent,
+  ModalExit,
+  LargeInput,
+  NormalInput,
+  WarningText,
+  SuccessText,
 };
-export default styles;
+export default lightStyles;
