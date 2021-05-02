@@ -6,9 +6,8 @@
 
 import React from 'react';
 import AnswerRenderer from './AnswerRenderer.jsx';
-import styles from './styles.js';
 import QuestionHelpfulPost from './APIHandlers/QuestionHelpfulPost';
-import QuestionReport from './APIHandlers/QuestionReport';
+import QuestionReportPost from './APIHandlers/QuestionReportPost';
 import AnswerModal from './Modals/NewAnswer.jsx';
 
 class QuestionRenderer extends React.Component {
@@ -30,7 +29,7 @@ class QuestionRenderer extends React.Component {
   }
 
   QuestionReport() {
-    QuestionReport(this.props.question.question_id, () => {
+    QuestionReportPost(this.props.question.question_id, () => {
       this.setState({ questionReport: 'Reported' });
     });
   }
@@ -42,47 +41,55 @@ class QuestionRenderer extends React.Component {
 
   render() {
     return (
-      <styles.QuestionBlock>
-        <styles.QuestionLine>
-          <styles.BoldedText>
-            <styles.QuestionText data-testid="QuestionText">
+      <this.props.styles.QuestionBlock>
+        <this.props.styles.QuestionLine>
+          <this.props.styles.BoldedText>
+            <this.props.styles.QuestionText data-testid="QuestionText">
               Q:
               {' '}
               {this.props.question.question_body}
-            </styles.QuestionText>
-          </styles.BoldedText>
-          <styles.QuestionSubtitle>
+            </this.props.styles.QuestionText>
+          </this.props.styles.BoldedText>
+          <this.props.styles.QuestionSubtitle>
             <div>
               Helpful?
               {' '}
-              <styles.HyperLink onClick={this.QuestionHelpful.bind(this)}>
+              <this.props.styles.HyperLink onClick={this.QuestionHelpful.bind(this)}>
                 Yes
-              </styles.HyperLink>
+              </this.props.styles.HyperLink>
               {' '}
               (
               {this.state.question_helpfulness}
               ) |
               {' '}
-              <styles.HyperLink onClick={this.toggleModal.bind(this)}>Add Answer</styles.HyperLink>
+              <this.props.styles.HyperLink onClick={this.toggleModal.bind(this)}>
+                Add Answer
+              </this.props.styles.HyperLink>
               {'  |  '}
-              <styles.HyperLink
+              <this.props.styles.HyperLink
                 onClick={this.QuestionReport.bind(this)}
               >
                 {this.state.questionReport}
-              </styles.HyperLink>
+              </this.props.styles.HyperLink>
             </div>
-          </styles.QuestionSubtitle>
-        </styles.QuestionLine>
-        <styles.AnswerBlock>
-          <AnswerRenderer answers={this.props.question.answers} key={Math.random() * 1000000} />
-        </styles.AnswerBlock>
+          </this.props.styles.QuestionSubtitle>
+        </this.props.styles.QuestionLine>
+        <this.props.styles.AnswerBlock>
+          <AnswerRenderer
+            answers={this.props.question.answers}
+            key={Math.random() * 1000000}
+            styles={this.props.styles}
+          />
+        </this.props.styles.AnswerBlock>
         <AnswerModal
           show={this.state.showAnswerCreate}
           toggleView={this.toggleModal.bind(this)}
           productInformation={this.props.productInformation}
           questionInformation={this.props.question}
+          styles={this.props.styles}
+          sort="helpfulness"
         />
-      </styles.QuestionBlock>
+      </this.props.styles.QuestionBlock>
     );
   }
 }

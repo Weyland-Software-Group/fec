@@ -1,6 +1,4 @@
 import React from 'react';
-import styles from './styles';
-import secondaryStyles from '../styles';
 
 class Modal extends React.Component {
   constructor(props) {
@@ -61,6 +59,7 @@ class Modal extends React.Component {
         this.setState({ successText: 'Your answer has been successfully submitted' });
         setTimeout(this.props.toggleView, 2000);
       },
+      error: () => console.log('Could not post to server'),
     });
   }
 
@@ -84,43 +83,43 @@ class Modal extends React.Component {
   render() {
     if (this.props.show) {
       return (
-        <styles.ModalBackdrop>
-          <styles.ModalContentWrapper>
-            <styles.ModalContent>
-              <styles.ModalExit>
-                <secondaryStyles.SubTitle onClick={this.props.toggleView}>
+        <this.props.styles.ModalBackdrop>
+          <this.props.styles.ModalContentWrapper>
+            <this.props.styles.ModalContent>
+              <this.props.styles.ModalExit>
+                <this.props.styles.SubTitle onClick={this.props.toggleView}>
                   x
-                </secondaryStyles.SubTitle>
-              </styles.ModalExit>
-              <secondaryStyles.Title>Submit Your Answer</secondaryStyles.Title>
-              <secondaryStyles.SubTitle>
+                </this.props.styles.SubTitle>
+              </this.props.styles.ModalExit>
+              <this.props.styles.Title>Submit Your Answer</this.props.styles.Title>
+              <this.props.styles.SubTitle>
                 {this.props.productInformation.data.product.name}
                 {': '}
                 {this.props.questionInformation.question_body}
-              </secondaryStyles.SubTitle>
-              <secondaryStyles.TertiaryTitle>
+              </this.props.styles.SubTitle>
+              <this.props.styles.TertiaryTitle>
                 Your Answer*
-              </secondaryStyles.TertiaryTitle>
-              <styles.LargeInput onChange={this.handleAnswer.bind(this)} />
-              <secondaryStyles.TertiaryTitle>What is your nickname?*</secondaryStyles.TertiaryTitle>
-              <styles.NormalInput onChange={this.handleNick.bind(this)} />
-              <secondaryStyles.QuarternaryTitle>
+              </this.props.styles.TertiaryTitle>
+              <this.props.styles.LargeInput onChange={this.handleAnswer.bind(this)} />
+              <this.props.styles.TertiaryTitle>What is your nickname?*</this.props.styles.TertiaryTitle>
+              <this.props.styles.NormalInput onChange={this.handleNick.bind(this)} />
+              <this.props.styles.QuarternaryTitle>
                 For privacy reasons, do not use your full name or email address
-              </secondaryStyles.QuarternaryTitle>
-              <secondaryStyles.TertiaryTitle>Your email*</secondaryStyles.TertiaryTitle>
-              <styles.NormalInput onChange={this.handleEmail.bind(this)} />
-              <secondaryStyles.AddQuestionButton onClick={this.submitAnswer.bind(this)}>
+              </this.props.styles.QuarternaryTitle>
+              <this.props.styles.TertiaryTitle>Your email*</this.props.styles.TertiaryTitle>
+              <this.props.styles.NormalInput onChange={this.handleEmail.bind(this)} />
+              <this.props.styles.AddQuestionButton onClick={this.submitAnswer.bind(this)}>
                 Submit Answer
-              </secondaryStyles.AddQuestionButton>
-              <styles.WarningText>
+              </this.props.styles.AddQuestionButton>
+              <this.props.styles.WarningText>
                 {this.state.warningText}
-              </styles.WarningText>
-              <styles.SuccessText>
+              </this.props.styles.WarningText>
+              <this.props.styles.SuccessText>
                 {this.state.successText}
-              </styles.SuccessText>
-            </styles.ModalContent>
-          </styles.ModalContentWrapper>
-        </styles.ModalBackdrop>
+              </this.props.styles.SuccessText>
+            </this.props.styles.ModalContent>
+          </this.props.styles.ModalContentWrapper>
+        </this.props.styles.ModalBackdrop>
       );
     }
 

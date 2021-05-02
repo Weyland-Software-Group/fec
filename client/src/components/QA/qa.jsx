@@ -4,7 +4,8 @@
 /* eslint-disable react/destructuring-assignment */
 
 import React from 'react';
-import styles from './SubComponents/styles.js';
+import lightStyles from './SubComponents/lightStyles.js';
+import darkStyles from './SubComponents/darkStyles.js';
 import QuestionRenderer from './SubComponents/QuestionRenderer.jsx';
 import Search from './SubComponents/Search.jsx';
 import QuestionModal from './SubComponents/Modals/NewQuestion.jsx';
@@ -14,11 +15,13 @@ class QA extends React.Component {
     super(props);
     const sortedQuestions = this.props.data.qa.results;
     sortedQuestions.sort((a, b) => b.question_helpfulness - a.question_helpfulness);
+    let currentStyles = this.props.colorMode === 'light' ? lightStyles : darkStyles
     this.state = {
       questionList: sortedQuestions,
       filteredQuestions: sortedQuestions,
       showAllQuestions: false,
       showQuestionCreate: false,
+      styles: currentStyles,
     };
   }
 
@@ -44,13 +47,13 @@ class QA extends React.Component {
 
   render() {
     return (
-      <styles.QA>
-        <styles.Title>
+      <this.state.styles.QA>
+        <this.state.styles.Title>
           <div>QUESTIONS & ANSWERS</div>
-        </styles.Title>
-        <styles.SearchBarWrapper>
-          <Search searchFilter={this.searchFilter.bind(this)} />
-        </styles.SearchBarWrapper>
+        </this.state.styles.Title>
+        <this.state.styles.SearchBarWrapper>
+          <Search styles={this.state.styles} searchFilter={this.searchFilter.bind(this)} />
+        </this.state.styles.SearchBarWrapper>
         <div>
           {this.state.showAllQuestions
             ? this.state.filteredQuestions.map((question) => (
@@ -58,6 +61,7 @@ class QA extends React.Component {
                 question={question}
                 productInformation={this.props}
                 key={Math.random() * 100000}
+                styles={this.state.styles}
               />
             ))
             : this.state.filteredQuestions.slice(0, 4).map((question) => (
@@ -65,27 +69,29 @@ class QA extends React.Component {
                 question={question}
                 productInformation={this.props}
                 key={Math.random() * 100000}
+                styles={this.state.styles}
               />
             ))}
         </div>
-        <styles.ButtonContainer>
+        <this.state.styles.ButtonContainer>
           {this.state.showAllQuestions || this.state.filteredQuestions.length < 5
             ? <div />
             : (
-              <styles.AddQuestionButton onClick={this.showAllQuestions.bind(this)}>
+              <this.state.styles.AddQuestionButton onClick={this.showAllQuestions.bind(this)}>
                 More Answered Questions
-              </styles.AddQuestionButton>
+              </this.state.styles.AddQuestionButton>
             )}
-          <styles.AddQuestionButton onClick={this.toggleModal.bind(this)}>
+          <this.state.styles.AddQuestionButton onClick={this.toggleModal.bind(this)}>
             Add A Question
-          </styles.AddQuestionButton>
-        </styles.ButtonContainer>
+          </this.state.styles.AddQuestionButton>
+        </this.state.styles.ButtonContainer>
         <QuestionModal
           show={this.state.showQuestionCreate}
           toggleView={this.toggleModal.bind(this)}
           productInformation={this.props}
+          styles={this.state.styles}
         />
-      </styles.QA>
+      </this.state.styles.QA>
     );
   }
 }
