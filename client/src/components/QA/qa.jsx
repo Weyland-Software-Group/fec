@@ -73,7 +73,7 @@ class QA extends React.Component {
               />
             ))}
         </div>
-        <this.state.styles.ButtonContainer>
+        <this.state.styles.ButtonContainer data-testid="QuestionButtons">
           {this.state.showAllQuestions || this.state.filteredQuestions.length < 5
             ? <div />
             : (

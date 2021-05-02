@@ -54,7 +54,7 @@ class QuestionRenderer extends React.Component {
             <div>
               Helpful?
               {' '}
-              <this.props.styles.HyperLink onClick={this.QuestionHelpful.bind(this)}>
+              <this.props.styles.HyperLink onClick={this.QuestionHelpful.bind(this)} data-testid="QuestionHelpful">
                 Yes
               </this.props.styles.HyperLink>
               {' '}
@@ -62,12 +62,13 @@ class QuestionRenderer extends React.Component {
               {this.state.question_helpfulness}
               ) |
               {' '}
-              <this.props.styles.HyperLink onClick={this.toggleModal.bind(this)}>
+              <this.props.styles.HyperLink onClick={this.toggleModal.bind(this)} data-testid="AddAnswer">
                 Add Answer
               </this.props.styles.HyperLink>
               {'  |  '}
               <this.props.styles.HyperLink
                 onClick={this.QuestionReport.bind(this)}
+                data-testid="QuestionReport"
               >
                 {this.state.questionReport}
               </this.props.styles.HyperLink>
@@ -79,6 +80,7 @@ class QuestionRenderer extends React.Component {
             answers={this.props.question.answers}
             key={Math.random() * 1000000}
             styles={this.props.styles}
+            sort="helpfulness"
           />
         </this.props.styles.AnswerBlock>
         <AnswerModal
@@ -87,7 +89,6 @@ class QuestionRenderer extends React.Component {
           productInformation={this.props.productInformation}
           questionInformation={this.props.question}
           styles={this.props.styles}
-          sort="helpfulness"
         />
       </this.props.styles.QuestionBlock>
     );

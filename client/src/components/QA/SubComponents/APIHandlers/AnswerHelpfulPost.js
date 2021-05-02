@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 const AnswerHelpfulPost = (answerID, cb) => {
   $.ajax({
     url: `/qa/answers/${answerID}/helpful`,
