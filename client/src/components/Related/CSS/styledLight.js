@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 
 const CarouselWrapperDiv = styled.div`
-background-color: #f7f7f7;
+background-color: #ffffff;
 position: relative;
 width: 100%;
 height: 550px;
@@ -44,7 +44,7 @@ box-sizing: border-box;
 `;
 
 const CardComponentDiv = styled.div`
-background-color: #f7f7f7;
+background-color: #ffffff;
 color: black;
 text-align: center;
 border-radius: 4px;
