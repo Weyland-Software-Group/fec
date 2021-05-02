@@ -7,17 +7,18 @@
 import React from 'react';
 import OverviewDefault from './overviewDefault.jsx';
 import OverViewExpanded from './overviewExpanded.jsx';
-import ShoppingCart from './addToCart/shoppingCart.jsx';
-import sampleDataOutfit from '../sampleData_outfit.js';
+import ShoppingCart from './Subcomponents/addToCart/shoppingCart.jsx';
+// import sampleDataOutfit from '../sampleData_outfit.js';
 
-const Overview = class extends React.Component {
+class Overview extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       style_photos: this.props.data.styles.results[0],
       defaultView: true,
       show: false,
-      cart: sampleDataOutfit.outfits,
+      cart: null,
+      dataReady: false,
     };
 
     this.getCart = this.getCart.bind(this);
@@ -26,16 +27,21 @@ const Overview = class extends React.Component {
     this.showCart = this.showCart.bind(this);
   }
 
-  getCart() {
-    const cart = JSON.parse(localStorage.getItem('cart'));
-    if (cart) {
-      this.setState({ cart: [cart, ...this.state.cart] });
-    }
+  componentDidMount() {
+    this.getCart();
   }
 
-  selectStyle(photos) {
-    this.setState({
-      style_photos: photos,
+  getCart() {
+    const cartIDs = localStorage.getItem('cart');
+    $.ajax({
+      url: '/api/cart',
+      type: 'POST',
+      data: { cartIDs },
+      success: (responseData) => this.setState({
+        cart: responseData.cart,
+      }, () => {
+        this.setState({ dataReady: true });
+      }),
     });
   }
 
@@ -51,6 +57,12 @@ const Overview = class extends React.Component {
     });
   }
 
+  selectStyle(photos) {
+    this.setState({
+      style_photos: photos,
+    });
+  }
+
   render() {
     const {
       data,
@@ -58,6 +70,7 @@ const Overview = class extends React.Component {
       refreshOutfit,
       ratingPercentage,
     } = this.props;
+
     return (
       <div>
         {this.state.show === false && (
@@ -67,9 +80,11 @@ const Overview = class extends React.Component {
               data={data}
               outfitData={outfitData}
               refreshOutfit={refreshOutfit}
+              dataReady={this.state.dataReady}
               ratingPercentage={ratingPercentage}
               style={this.state.style_photos}
               defaultView={this.state.defaultView}
+              clickHandler={this.props.clickHandler}
               toggleColorMode={this.props.toggleColorMode}
               selectStyle={this.selectStyle}
               expandView={this.expandView}
@@ -83,6 +98,7 @@ const Overview = class extends React.Component {
               data={data}
               style={this.state.style_photos}
               defaultView={this.state.defaultView}
+              clickHandler={this.props.clickHandler}
               expandView={this.expandView}
               showCart={this.showCart}
             />
@@ -96,7 +112,10 @@ const Overview = class extends React.Component {
               show={this.state.show}
               style={this.state.style_photos}
               cart={this.state.cart}
+              dataReady={this.state.dataReady}
+              clickHandler={this.props.clickHandler}
               onClose={this.showCart}
+              getCart={this.getCart}
             >
               My Shopping Cart
             </ShoppingCart>
@@ -106,6 +125,6 @@ const Overview = class extends React.Component {
       </div>
     );
   }
-};
+}
 
 export default Overview;

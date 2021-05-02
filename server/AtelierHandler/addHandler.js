@@ -36,6 +36,17 @@ const reviewAdd = (req, res) => {
     .then(() => res.end());
 };
 
+const cartAdd = (req, res) => {
+  axios({
+    method: 'post',
+    data: req.body,
+    url: `${baseURL}/cart`,
+    headers: { Authorization: API_KEY },
+  })
+    .then(() => res.end());
+};
+
 module.exports.questionAdd = questionAdd;
 module.exports.answerAdd = answerAdd;
 module.exports.reviewAdd = reviewAdd;
+module.exports.cartAdd = cartAdd;

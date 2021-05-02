@@ -7,7 +7,7 @@
 /* eslint-disable no-undef */
 import React from 'react';
 
-const Header = class extends React.Component {
+class Header extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -54,6 +54,7 @@ const Header = class extends React.Component {
         </button>
 
         <div className="header-right">
+
           <button
             type="button"
             className="shopping-bag"
@@ -74,6 +75,6 @@ const Header = class extends React.Component {
       </div>
     );
   }
-};
+}
 
 export default Header;

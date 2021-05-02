@@ -3,10 +3,10 @@
 /* eslint-disable import/extensions */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import AddToCart from './addToCart.jsx';
-import sampleData from '../../sampleData.js';
+import ImageGallery from './imageGallery.jsx';
+import sampleData from '../../../sampleData.js';
 
-xit('renders without crashing', () => {
+it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<AddToCart data={sampleData} />, div);
+  ReactDOM.render(<ImageGallery data={sampleData} />, div);
 });

@@ -259,12 +259,12 @@ img {
   height: 50px;
   padding: 2px;
   margin: 2px;
-  font-family: "Helvetica", Arial, sans-serif;
+  font-family: Helvetica, Arial;
   font-size: 0.8em;
 }
 
 .selection-box-font {
-  font-family: "Helvetica", Arial, sans-serif;
+  font-family: Helvetica, Arial;
   font-size: 0.9em;
 }
 
@@ -283,7 +283,7 @@ img {
 }
 
 .font-description {
-  font-family: "Helvetica", Arial, sans-serif;
+  font-family: Helvetica, Arial;
   font-size: 1em;
 }
 

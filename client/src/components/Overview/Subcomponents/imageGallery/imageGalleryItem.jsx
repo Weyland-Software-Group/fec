@@ -6,7 +6,7 @@
 /* eslint-disable react/destructuring-assignment */
 import React from 'react';
 
-const ImageGalleryItem = class extends React.Component {
+class ImageGalleryItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -33,6 +33,6 @@ const ImageGalleryItem = class extends React.Component {
 
     );
   }
-};
+}
 
 export default ImageGalleryItem;

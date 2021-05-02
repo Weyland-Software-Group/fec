@@ -1,49 +1,43 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable import/extensions */
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable react/no-access-state-in-setstate */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/destructuring-assignment */
-/* eslint-disable import/no-unresolved */
 import React from 'react';
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai';
 import { BsArrowsFullscreen } from 'react-icons/bs';
 import ImageGalleryItem from './imageGalleryItem.jsx';
 
-const ImageGallery = class extends React.Component {
+class ImageGallery extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      current: 0,
-      length: this.props.data.photos.length,
+      currentIndex: 0,
     };
 
     this.nextSlide = this.nextSlide.bind(this);
     this.prevSlide = this.prevSlide.bind(this);
     this.reSetCurrent = this.reSetCurrent.bind(this);
-    this.expand = this.expand.bind(this);
   }
 
   nextSlide() {
-    this.setState({
-      current: this.state.current === this.state.length - 1 ? 0 : this.state.current + 1,
-    });
+    let { currentIndex } = this.state;
+    const maxIndex = this.props.data.photos.length - 1;
+    currentIndex = currentIndex === maxIndex ? 0 : currentIndex + 1;
+    this.setState({ currentIndex });
   }
 
   prevSlide() {
-    this.setState({
-      current: this.state.current === 0 ? this.state.length - 1 : this.state.current - 1,
-    });
+    let { currentIndex } = this.state;
+    const maxIndex = this.props.data.photos.length - 1;
+    currentIndex = currentIndex === 0 ? maxIndex : currentIndex - 1;
+    this.setState({ currentIndex });
   }
 
   reSetCurrent(num) {
     this.setState({
-      current: num,
+      currentIndex: num,
     });
-  }
-
-  expand() {
-    this.props.expandView();
   }
 
   render() {
@@ -52,7 +46,7 @@ const ImageGallery = class extends React.Component {
         <section className="slider">
           <AiOutlineArrowLeft className="left-arrow" onClick={this.prevSlide} />
           <AiOutlineArrowRight className="right-arrow" onClick={this.nextSlide} />
-          <BsArrowsFullscreen className="expand-view" onClick={this.expand} />
+          <BsArrowsFullscreen className="expand-view" onClick={this.props.expandView} />
 
           <section className="slider-vertical">
 
@@ -68,8 +62,8 @@ const ImageGallery = class extends React.Component {
 
           {this.props.data.photos.map((item, index) => (
 
-            <div className={index === this.state.current ? 'slide-active' : 'slide'} key={index}>
-              {index === this.state.current && (
+            <div className={index === this.state.currentIndex ? 'slide-active' : 'slide'} key={index}>
+              {index === this.state.currentIndex && (
                 <div className="img-wrapper">
                   <img alt="" src={item.url} className={this.props.defaultView === true ? 'image' : 'image-expanded'} />
                 </div>
@@ -82,6 +76,6 @@ const ImageGallery = class extends React.Component {
 
     );
   }
-};
+}
 
 export default ImageGallery;

@@ -10,49 +10,63 @@
 /* eslint-disable no-undef */
 import React from 'react';
 import Func from '../helpers.js';
+import AddCart from '../APIHandlers/addCart.js';
 
-const AddToCart = class extends React.Component {
+class AddToCart extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       size: 'XS',
       size_num: 8,
+      skuID: null,
       quantity: null,
-      sku_id: null,
+      alert: false,
     };
 
     this.addToCart = this.addToCart.bind(this);
     this.addToOutfit = this.addToOutfit.bind(this);
   }
 
-  addToCart() {
-    let object = JSON.parse(localStorage.getItem('cart'));
-    console.log(object);
-    this.currentCart = this.currentCart.push(object);
-    const cart = { size: this.state.size, quantity: this.state.quantity };
-    console.log(this.currentCart);
-    localStorage.setItem('cart', currentCart);
-    // localStorage.setItem('cart', JSON.stringify(cart));
-    this.props.getCart();
+  addToCart(id) {
+    const { skuID } = this.state;
+    if (skuID) {
+      AddCart(skuID, () => {});
+      const { getCart } = this.props;
+
+      let string = localStorage.getItem('cart');
+      if (string === null) {
+        localStorage.setItem('cart', id.toString());
+      } else {
+        this.currentCart = string.split(',');
+        if (this.currentCart.indexOf(id.toString()) === -1) {
+          this.currentCart.push(id.toString());
+          localStorage.setItem('cart', this.currentCart);
+        } else {
+          localStorage.setItem('cart', id.toString());
+        }
+      }
+      this.props.getCart();
+      this.setState({ alert: false });
+    } else if (skuID === null) {
+      this.setState({ alert: true });
+    }
   }
 
   addToOutfit(id) {
     const { refreshOutfit } = this.props;
     const string = localStorage.getItem('outfit');
-    console.log('add start:', id, string, string.split(','));
-
-    this.currentOutfit = string.split(',');
-    if (this.currentOutfit[0] !== '' && this.currentOutfit.indexOf(id.toString()) === -1) {
-      this.currentOutfit.push(id.toString());
-      localStorage.setItem('outfit', this.currentOutfit);
-      console.log('add end: ', this.currentOutfit);
-    } else {
+    if (string === null) {
       localStorage.setItem('outfit', id.toString());
-      console.log('storage empty, added this: ', id.toString());
-
-      refreshOutfit();
+    } else {
+      this.currentOutfit = string.split(',');
+      if (this.currentOutfit[0] !== '' && this.currentOutfit.indexOf(id.toString()) === -1) {
+        this.currentOutfit.push(id.toString());
+        localStorage.setItem('outfit', this.currentOutfit);
+        refreshOutfit();
+      } else {
+        localStorage.setItem('outfit', id.toString());
+      }
     }
-
     refreshOutfit();
   }
 
@@ -65,19 +79,21 @@ const AddToCart = class extends React.Component {
         <select
           className="select-size"
           onChange={(e) => {
-            const size = JSON.parse(e.target.value).size;
-            const quantity = JSON.parse(e.target.value).quantity;
+            const skuID = JSON.parse(e.target.value)[0];
+            const size = JSON.parse(e.target.value)[1].size;
+            const quantity = JSON.parse(e.target.value)[1].quantity;
             this.setState({
               size,
               size_num: quantity,
+              skuID,
             });
           }}
         >
-          <option className="selection-box-font" value="" disabled selected hidden>select size</option>
+          <option className="selection-box-font" defaultValue="select size">select size</option>
           {Func.convertObjToArray(this.props.style.skus).map((item) => (
             <option
               key={item[0]}
-              value={JSON.stringify(item[1])}
+              value={JSON.stringify(item)}
             >
               {item[1].size}
             </option>
@@ -93,7 +109,7 @@ const AddToCart = class extends React.Component {
             });
           }}
         >
-          <option className="selection-box-font" value="" disabled selected hidden>select quantity</option>
+          <option className="selection-box-font" defaultValue="select quantity">select quantity</option>
 
           {Func.renderNum(this.state.size_num).map((item, index) => {
             if (!item) {
@@ -115,7 +131,7 @@ const AddToCart = class extends React.Component {
         <button
           type="button"
           className="button-bag"
-          onClick={this.addToCart}
+          onClick={() => { this.addToCart(id); }}
         >
           Add to Bag
         </button>
@@ -128,10 +144,14 @@ const AddToCart = class extends React.Component {
           Outfit
         </button>
 
+        {this.state.alert && (
+          <div>Please select size and quantity</div>
+        )}
+
       </div>
 
     );
   }
-};
+}
 
 export default AddToCart;

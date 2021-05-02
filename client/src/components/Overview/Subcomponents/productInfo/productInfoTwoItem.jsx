@@ -3,7 +3,7 @@
 /* eslint-disable react/destructuring-assignment */
 import React from 'react';
 
-const ProductInfoTwoItem = class extends React.Component {
+class ProductInfoTwoItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -20,6 +20,6 @@ const ProductInfoTwoItem = class extends React.Component {
 
     );
   }
-};
+}
 
 export default ProductInfoTwoItem;

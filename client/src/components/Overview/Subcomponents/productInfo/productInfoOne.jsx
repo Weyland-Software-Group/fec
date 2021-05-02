@@ -9,7 +9,7 @@ font-size: 1rem;
 color: red;
 `;
 
-const ProductInfoOne = class extends React.Component {
+class ProductInfoOne extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -33,6 +33,6 @@ const ProductInfoOne = class extends React.Component {
 
     );
   }
-};
+}
 
 export default ProductInfoOne;

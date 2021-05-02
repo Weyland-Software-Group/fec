@@ -11,7 +11,7 @@ const Sname = styled.div`
 font-size: 1rem;
 `;
 
-const StyleSelector = class extends React.Component {
+class StyleSelector extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -31,13 +31,13 @@ const StyleSelector = class extends React.Component {
               item={item}
               key={i}
               selectStyle={this.props.selectStyle}
-              addOutfit={this.props.addOutfit}
+              clickHandler={this.props.clickHandler}
             />
         ))}
       </div>
 
     );
   }
-};
+}
 
 export default StyleSelector;

@@ -1,19 +1,10 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/destructuring-assignment */
 import React from 'react';
-import styled from 'styled-components';
 
-// const Cimage = styled.img`
-// display: inline-block;
-// border: 1px solid black;
-// text-align: center;
-// height: 50px;
-// width: 50px;
-// border-radius: 50%;
-// margin: 5px;
-// `;
-
-const StyleSelectorItem = class extends React.Component {
+class StyleSelectorItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -23,9 +14,11 @@ const StyleSelectorItem = class extends React.Component {
   }
 
   handleClick() {
+    const element = 'style_selector';
+    const widget = 'overview';
     const photos = this.props.item;
     this.props.selectStyle(photos);
-    this.props.addOutfit(photos);
+    this.props.clickHandler(element, widget);
   }
 
   render() {
@@ -41,6 +34,6 @@ const StyleSelectorItem = class extends React.Component {
 
     );
   }
-};
+}
 
 export default StyleSelectorItem;

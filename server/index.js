@@ -55,6 +55,20 @@ app.post('/outfit', (req, res) => {
   }, (productData) => res.send(productData));
 });
 
+app.post('/api/cart', (req, res) => {
+  APIControllers.cartPostHandler(req, (err) => {
+    res.status(404);
+    res.end();
+  }, (productData) => res.send(productData));
+});
+
+app.get('/cart', (req, res) => {
+  APIControllers.cartGetHandler(req, (err) => {
+    res.status(404);
+    res.end();
+  }, (productData) => res.send(productData));
+});
+
 app.put('/qa/questions/:question_id/helpful', APIControllers.questionHelpful);
 
 app.put('/qa/answers/:answer_id/helpful', APIControllers.answerHelpful);
@@ -79,6 +93,8 @@ app.post('/interactions', (req, res) => {
     res.end();
   }, () => res.end());
 });
+
+app.post('/cart', APIControllers.cartAdd);
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
