@@ -220,7 +220,7 @@ class App extends React.Component {
     }
     return (
       <div>
-        {this.state.reviews
+        {this.state.overview
           ? (
             <Overview
               data={this.state.data}
