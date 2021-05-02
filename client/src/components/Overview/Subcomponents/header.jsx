@@ -50,7 +50,7 @@ class Header extends React.Component {
           className="button-dark"
           onClick={this.dark}
         >
-          dark
+          Color Mode
         </button>
 
         <div className="header-right">
