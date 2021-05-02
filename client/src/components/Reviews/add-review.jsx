@@ -1,4 +1,5 @@
 import React from 'react';
+import Styles from './styles.js';
 
 class AddReview extends React.Component {
   constructor(props) {
@@ -21,16 +22,15 @@ class AddReview extends React.Component {
 
   render() {
     return (
-      <div>
-        <button
+      <Styles.UtilityContainer>
+        <Styles.ReviewButton
           onClick={this.renderForm}
-          className="review-btn"
           type="button"
           data-testid="add-review"
         >
           Add Review
-        </button>
-      </div>
+        </Styles.ReviewButton>
+      </Styles.UtilityContainer>
     );
   }
 }

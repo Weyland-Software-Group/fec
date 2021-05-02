@@ -1,5 +1,5 @@
 
-.reviews {
+/* .reviews {
   display: grid;
   grid-template-columns: 1fr 2fr;
   justify-content: center;
@@ -25,7 +25,7 @@
   width: 100%;
   margin: 20% 0 0 5%;
   justify-content: flex-start;
-}
+} */
 
 /* .sort-by-container {
   display: flex;
@@ -43,10 +43,10 @@
   margin: 7px 3px 0 0;
 } */
 
-a {
+/* a {
   color: #423f3f;
   margin: 0 4px;
-}
+} */
 
 /* .review-post {
   border-bottom: 1px solid gray;
@@ -55,16 +55,16 @@ a {
   width: 85%;
 } */
 
-.reviews-btn-row {
+/* .reviews-btn-row {
     display: flex;
     flex-direction: row;
     align-self: center;
     justify-content: space-evenly;
     align-items: center;
     width: 35%;
-  }
+  } */
 
-.review-btn {
+/* .review-btn {
   background: none;
   height: 40px;
   border: 1.5px solid #252222;
@@ -72,7 +72,7 @@ a {
   width: 100%;
   margin: 0 5%;
   font-size: .8em;
-}
+} */
 
 /* .review-post-top-row {
   display: flex;
@@ -93,20 +93,20 @@ a {
   color: #423f3f;
 } */
 
-.star-rating-container {
+/* .star-rating-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
   margin-right: 20%;
-}
+} */
 
 /* .review-post-star-rating-container {
   margin: 0;
 } */
 
-.star-rating {
+/* .star-rating {
   margin-right: 130px;
-}
+} */
 
 /* .username-date {
   position: relative;
@@ -117,10 +117,10 @@ a {
   margin: 0 4px;
 } */
 
-.star-rating-header {
+/* .star-rating-header {
   font-size: 44px;
   font-weight: 900;
-}
+} */
 
 .recommendation-percentage {
   font-weight: 200;
@@ -134,7 +134,7 @@ a {
   margin: 15px 0;
 }
 
-.individual-ratings {
+/* .individual-ratings {
   width: 86%;
   display: flex;
   flex-direction: row;
@@ -153,9 +153,9 @@ a {
   border-radius: 2px;
   margin-top: 6px;
   position: relative;
-}
+} */
 
-.star-review-scale-inner {
+/* .star-review-scale-inner {
   background: #2ada71;
   height: 8px;
   border-radius: 2px;
@@ -169,9 +169,9 @@ a {
   flex-direction: column;
   width: 100%;
   margin-right: 1px;
-}
+} */
 
-.size-comfort-scale {
+/* .size-comfort-scale {
   display: flex;
   flex-direction: column;
   font-size: 12px;
@@ -188,7 +188,7 @@ a {
   margin: 5px 0 10px 0;
   width: 100%;
 }
-
+*/
 .size-comfort-carrot {
   position: absolute;
   font-family: 'Font Awesome 5 Free';
@@ -196,7 +196,7 @@ a {
   top: 11px;
   font-size: 22px;
 }
-
+/*
 .size-comfort-box {
   background-color: #ccc;
   width: 100%;
@@ -211,14 +211,14 @@ small {
 
 .size-comfort-heading {
   margin-left: 3px;
-}
+} */
 
 
-.star-container {
+/* .star-container {
   margin: 8px 0 0 8px;
-}
+} */
 
-.total-star-ratings {
+/* .total-star-ratings {
   position: relative;
   left: 3px;
 }
@@ -226,7 +226,7 @@ small {
 .ratings-pop-up {
   position: relative;
   margin-right: 3px;
-}
+} */
 
 .underline {
   text-decoration: underline;
@@ -236,32 +236,32 @@ small {
   margin-left: 0px;
 } */
 
-h4 {
+/* h4 {
   font-size: 18px;
   text-align: center;
-}
+} */
 
-.form-inputs-container {
+/* .form-inputs-container {
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
   width: 85%;
-}
+} */
 
-.form-row {
+/* .form-row {
   display: flex;
   flex-direction: column;
   justify-content: center;
   position: relative;
-}
+} */
 
-.form-stars-and-description {
+/* .form-stars-and-description {
   flex-direction: column;
-}
+} */
 
-.form-cover {
-  height: 3000px;
-  width: 1800px;
+/* .form-cover {
+  height: 3500px;
+  width: 2400px;
   background-color: #000;
   opacity: .7;
   position: absolute;
@@ -272,7 +272,7 @@ h4 {
 
 .form {
   position: absolute;
-  top: 220%;
+  top: 120%;
   left: 20%;
   width: 60%;
   height: 70%;
@@ -285,7 +285,7 @@ h4 {
   border: 1px solid #000;
   scroll-behavior: smooth;
   overflow-y: scroll;
-}
+} */
 
 .filters-applied-title {
   margin: 15px 0 5px 0;
@@ -295,16 +295,16 @@ h4 {
   margin: 5px 0;
 }
 
-.exit-form {
+/* .exit-form {
   display: flex;
   align-self: flex-end;
-}
+} */
 
-.write-review-heading {
+/* .write-review-heading {
   margin: 8px 0;
-}
+} */
 
-.form-label {
+/* .form-label {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -320,9 +320,9 @@ h4 {
   display: flex;
   align-self: center;
   justify-content: center;
-}
+} */
 
-.form-stars-container {
+/* .form-stars-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -330,13 +330,6 @@ h4 {
   margin-bottom: 55px;
 }
 
-.form-stars-outer {
-  margin-top: 1px;
-  font-size: 16px;
-  position: relative;
-  display: flex;
-  flex-direction: row;
-}
 
 .form-stars-inner {
   margin-top: 1px;
@@ -347,12 +340,21 @@ h4 {
   white-space: nowrap;
   overflow: hidden;
 }
+*/
+
+.form-stars-outer {
+  margin-top: 1px;
+  font-size: 16px;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+}
 
 .form-stars-outer::before {
   content: "\f005";
   font-family: 'Font Awesome 5 Free';
 }
-
+/*
 .form-stars-inner::before {
   content: "\f005";
   font-family: 'Font Awesome 5 Free';
@@ -366,30 +368,30 @@ h4 {
   top: 22%;
   width: 65%;
   text-decoration: none;
-}
+} */
 
-.form-stars-header {
+/* .form-stars-header {
   margin-right: 6px;
-}
+} */
 
-.radio-buttons-row {
+/* .radio-buttons-row {
   justify-content: space-evenly;
   flex-direction: row;
-}
+} */
 
-.product-characteristics-container {
+/* .product-characteristics-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 70%;
-}
+} */
 
-.product-characteristics-radio {
+/* .product-characteristics-radio {
   display: flex;
   flex-direction: column;
   margin: 0 8px;
   width: 20%;
-}
+} */
 
 .section-heading {
   margin-bottom: 10px;
@@ -397,22 +399,22 @@ h4 {
   text-decoration: underline;
 }
 
-.text-input-label {
+/* .text-input-label {
   flex-direction: column;
   text-align: center;
-}
+} */
 
-.text-inputs {
+/* .text-inputs {
   width: 65%;
   height: 100%;
   display: flex;
   align-self: center;
   margin: 5px 0;
-}
+} */
 
-.review-body {
+/* .review-body {
   height: 150%;
-}
+} */
 
 /* .review-post-img-container {
   display: flex;
@@ -450,9 +452,15 @@ h4 {
 
 .exit-photo-selector {
   display: flex;
-  align-self: right;
-  width: 20px;
-  height: 20px;
+  align-self: flex-end;
+  width: 25px;
+  height: 25px;
+  background: none;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #000;
+  font-size: 18px;
+  margin-right: 15px;
 }
 
 .photo-select-button {
@@ -466,7 +474,18 @@ h4 {
 .photo-select-modal {
   border: 1px solid #000;
   z-index: 999;
-  justify-content: space-evenly;
+  position: absolute;
+  top: 120%;
+  left: 20%;
+  width: 60%;
+  height: 70%;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px 8px;
+  scroll-behavior: smooth;
+  overflow-y: scroll;
 }
 
 .img-container {

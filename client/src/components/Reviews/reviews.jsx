@@ -10,7 +10,7 @@ import ReviewPosts from './review-posts.jsx';
 import MoreReviews from './more-reviews.jsx';
 import AddReview from './add-review.jsx';
 import ReviewForm from './review-form.jsx';
-import helpers from './helpers.js';
+import Styles from './styles.js';
 
 class Reviews extends React.Component {
   constructor(props) {
@@ -92,7 +92,12 @@ class Reviews extends React.Component {
   renderReviewForm() {
     if (this.state.renderForm) {
       return (
-        <ReviewForm clickTracking={this.props.clickHandler} hideForm={this.changeFormState} />
+        <ReviewForm
+          clickTracking={this.props.clickHandler}
+          hideForm={this.changeFormState}
+          reviews={this.reviews}
+          productID={this.props.productID}
+        />
       );
     }
     return (<div />);
@@ -140,9 +145,10 @@ class Reviews extends React.Component {
     };
 
     return (
-      <div className="reviews" data-testid="reviews">
-        <div className="reviews-col-1">
+      <Styles.Reviews data-testid="reviews">
+        <Styles.ReviewsCol1>
           <RatingsReviews
+            className="ratings-reviews"
             clickTracking={this.props.clickHandler}
             filterBy={this.state.filterBy}
             addPosts={this.addPosts}
@@ -150,8 +156,8 @@ class Reviews extends React.Component {
             data={this.props.data}
             updateParentPercentage={this.props.updateParentPercentage}
           />
-        </div>
-        <div className="reviews-col-2">
+        </Styles.ReviewsCol1>
+        <Styles.ReviewsCol2>
           <SortBy
             clickTracking={this.props.clickHandler}
             selected={this.state.selected}
@@ -159,7 +165,7 @@ class Reviews extends React.Component {
             changeSelected={this.changeSelected}
           />
           {renderReviewPosts()}
-          <div className="reviews-btn-row">
+          <Styles.ReviewsButtonRow>
             <MoreReviews
               className="more-reviews"
               clickTracking={this.props.clickHandler}
@@ -168,14 +174,15 @@ class Reviews extends React.Component {
               data={this.props.data}
             />
             <AddReview
+              data-testid="add-review"
               clickTracking={this.props.clickHandler}
               changeFormState={this.changeFormState}
               data={this.props.data}
             />
-          </div>
-        </div>
+          </Styles.ReviewsButtonRow>
+        </Styles.ReviewsCol2>
         {this.renderReviewForm()}
-      </div>
+      </Styles.Reviews>
     );
   }
 }

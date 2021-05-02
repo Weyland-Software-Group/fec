@@ -49,6 +49,7 @@ class App extends React.Component {
           data: currentData,
         }, () => {
           this.setState({
+            productID: productID,
             reviews: true,
           });
         });
@@ -231,11 +232,12 @@ class App extends React.Component {
         {this.state.reviews
           ? (
             <Reviews
+              id="reviews"
               data={this.state.data}
               key={Math.random() * 1000000}
               colorMode={this.state.colorMode}
               clickHandler={this.clickHandler}
-              colorMode={this.state.colorMode}
+              productID={this.state.productID}
             />
           )
           : <div />}

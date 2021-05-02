@@ -101,11 +101,8 @@ class ReviewPosts extends React.Component {
           <Styles.ReviewPostTopRow>
             <Styles.ReviewPostStarRatingContainer>
               <Styles.ReviewPostStarContainer>
-                {/* <div className="stars-outer">
-                  <div style={starInnerWidth} className="stars-inner" />
-                </div> */}
                 <Styles.StarsOuterBefore>
-                  <Styles.StarsInnerBefore style={starInnerWidth}></Styles.StarsInnerBefore>
+                  <Styles.StarsInnerBefore style={starInnerWidth} />
                 </Styles.StarsOuterBefore>
               </Styles.ReviewPostStarContainer>
             </Styles.ReviewPostStarRatingContainer>

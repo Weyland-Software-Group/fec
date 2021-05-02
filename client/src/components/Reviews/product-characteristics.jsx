@@ -1,4 +1,5 @@
 import React from 'react';
+import Styles from './styles.js';
 
 class ProductCharacteristics extends React.Component {
   constructor(props) {
@@ -22,6 +23,7 @@ class ProductCharacteristics extends React.Component {
       displayDescription: this.state.description[e.target.value],
     });
     this.addToFormState(e);
+    this.props.handleChange(e);
   }
 
   produceRadioButtons() {
@@ -47,10 +49,10 @@ class ProductCharacteristics extends React.Component {
         description = '';
       }
       buttons.push(
-        <div className="product-characteristics-radio" key={Math.random() * 10000}>
+        <Styles.ProductCharacteristicsRadio className="product-characteristics-radio" key={Math.random() * 10000}>
           <input onClick={this.setDescription} style={radioStyles} type="radio" name={this.props.name} value={i} />
           <div style={descriptionStyles}>{description}</div>
-        </div>,
+        </Styles.ProductCharacteristicsRadio>,
       );
     }
     return buttons;
@@ -65,9 +67,9 @@ class ProductCharacteristics extends React.Component {
     return (
       <div style={radioBtnRow}>
         <h5 className="section-heading">{this.props.name}</h5>
-        <div className="form-row radio-buttons-row">
+        <Styles.RadioButtonRow>
           {this.produceRadioButtons()}
-        </div>
+        </Styles.RadioButtonRow>
       </div>
     );
   }

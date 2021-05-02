@@ -73,15 +73,9 @@ class PhotoSelector extends React.Component {
     return (
       <div className="photo-select-modal form">
         <button onClick={this.exit} className="exit-photo-selector" type="button">X</button>
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        />
-        <input onChange={this.handleUpload} type="file" accept="image/*" multiple="true" />
+        <h2>Select Photos:</h2>
+        <input style={{ marginLeft: '80px' }} onChange={this.handleUpload} type="file" accept="image/*" multiple="true" />
+        <h3>Images Chosen:</h3>
         <div className="img-container">
           {this.displayImgs()}
         </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import helpers from './helpers.js';
+import Styles from './styles.js'
 
 class RatingsCount extends React.Component {
   constructor(props) {
@@ -33,13 +34,16 @@ class RatingsCount extends React.Component {
     };
 
     return (
-      <div onClick={this.ratingFilter} className="individual-ratings">
-        <div className="ratings-pop-up underline">{this.props.stars + ' stars'}</div>
-        <div className="star-review-scale">
-          <div style={elWidth} className="star-review-scale-inner"></div>
-        </div>
-        <div className="total-star-ratings underline">{this.getTotalStarRatings(this.props.stars)} total</div>
-      </div>
+      <Styles.IndividualRatings onClick={this.ratingFilter}>
+        <Styles.RatingsPopUp>{this.props.stars + ' stars'}</Styles.RatingsPopUp>
+        <Styles.StarReviewScale>
+          <Styles.StarReviewScaleInner style={elWidth}></Styles.StarReviewScaleInner>
+        </Styles.StarReviewScale>
+        <Styles.TotalStarRatings>
+          {this.getTotalStarRatings(this.props.stars)}
+          {' total'}
+        </Styles.TotalStarRatings>
+      </Styles.IndividualRatings>
     );
   }
 }
