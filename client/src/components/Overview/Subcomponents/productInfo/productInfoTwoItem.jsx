@@ -1,6 +1,5 @@
-/* eslint-disable react/jsx-one-expression-per-line */
-/* eslint-disable react/prop-types */
 /* eslint-disable react/destructuring-assignment */
+/* eslint-disable react/prop-types */
 import React from 'react';
 
 class ProductInfoTwoItem extends React.Component {
@@ -12,10 +11,17 @@ class ProductInfoTwoItem extends React.Component {
   }
 
   render() {
+    const { feature, value } = this.props.feature;
     return (
       <div>
-        <li>Feature: {this.props.feature.feature}</li>
-        <li>Value: {this.props.feature.value}</li>
+        <li>
+          Feature:
+          {feature}
+        </li>
+        <li>
+          Value:
+          {value }
+        </li>
       </div>
 
     );

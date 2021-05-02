@@ -9,41 +9,41 @@ import React from 'react';
 import Header from './Subcomponents/header.jsx';
 import ImageGallery from './Subcomponents/imageGallery/imageGallery.jsx';
 import ProductInfoTwo from './Subcomponents/productInfo/productInfoTwo.jsx';
+import styles from './Subcomponents/styles.js';
 
-class OverViewExpanded extends React.Component {
+class OverviewExpanded extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-
     };
   }
 
   render() {
     return (
-      <div className="overview-expanded">
-        <div className="header">
+      <styles.overview_expanded>
+        <styles.header>
           <Header
             data={this.props.data}
             showCart={this.props.showCart}
           />
-        </div>
+        </styles.header>
 
-        <div className="main-expanded">
+        <styles.main_expanded>
           <ImageGallery
             data={this.props.style}
             defaultView={this.props.defaultView}
             expandView={this.props.expandView}
           />
-        </div>
+        </styles.main_expanded>
 
-        <div className="footer">
+        <styles.footer>
           <ProductInfoTwo data={this.props.data} />
-        </div>
+        </styles.footer>
 
         <br />
-      </div>
+      </styles.overview_expanded>
     );
   }
 }
 
-export default OverViewExpanded;
+export default OverviewExpanded;

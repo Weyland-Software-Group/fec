@@ -12,6 +12,7 @@ import ImageGallery from './Subcomponents/imageGallery/imageGallery.jsx';
 import StyleSelector from './Subcomponents/styleSelector/styleSelector.jsx';
 import AddToCart from './Subcomponents/addToCart/addToCart.jsx';
 import ProductInfoTwo from './Subcomponents/productInfo/productInfoTwo.jsx';
+import styles from './Subcomponents/styles.js';
 
 class OverviewDefault extends React.Component {
   constructor(props) {
@@ -22,8 +23,8 @@ class OverviewDefault extends React.Component {
 
   render() {
     return (
-      <div className="overview-default">
-        <div className="header">
+      <styles.overview_default>
+        <styles.header>
           <Header
             data={this.props.data}
             dataReady={this.props.dataReady}
@@ -31,18 +32,18 @@ class OverviewDefault extends React.Component {
             toggleColorMode={this.props.toggleColorMode}
             clickHandler={this.props.clickHandler}
           />
-        </div>
+        </styles.header>
 
-        <div className="main">
+        <styles.main>
           <ImageGallery
             data={this.props.style}
             defaultView={this.props.defaultView}
             expandView={this.props.expandView}
             clickHandler={this.props.clickHandler}
           />
-        </div>
+        </styles.main>
 
-        <div className="sidebar">
+        <styles.sidebar>
           <ProductInfoOne
             data={this.props.data}
             photos={this.props.style}
@@ -65,14 +66,14 @@ class OverviewDefault extends React.Component {
             clickHandler={this.props.clickHandler}
             getCart={this.props.getCart}
           />
-        </div>
+        </styles.sidebar>
 
-        <div className="footer">
+        <styles.footer>
           <ProductInfoTwo data={this.props.data} />
-        </div>
+        </styles.footer>
 
         <br />
-      </div>
+      </styles.overview_default>
     );
   }
 }

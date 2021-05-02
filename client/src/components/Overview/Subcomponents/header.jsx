@@ -6,6 +6,7 @@
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable no-undef */
 import React from 'react';
+import styles from './styles.js';
 
 class Header extends React.Component {
   constructor(props) {
@@ -35,15 +36,15 @@ class Header extends React.Component {
 
   render() {
     return (
-      <div className="header">
+      <styles.header>
 
         <nav className="navbar" id="nav">
           <em>Project Catwalk</em>
         </nav>
 
-        <div className="header-below">
+        <styles.header_below>
           <div>SITE WIDE ANNOUNCEMENT MESSAGE! - SALE/DISCOUNT OFFER - NEW PRODUCT HIGHLIGHT</div>
-        </div>
+        </styles.header_below>
 
         <button
           type="button"
@@ -53,7 +54,7 @@ class Header extends React.Component {
           Color
         </button>
 
-        <div className="header-right">
+        <styles.header_right>
 
           <button
             type="button"
@@ -63,16 +64,16 @@ class Header extends React.Component {
             Bag
           </button>
 
-          <div className="search">
+          <styles.search>
             search:
             <input
               value={this.state.term}
               onChange={this.onChange}
             />
-          </div>
-        </div>
+          </styles.search>
+        </styles.header_right>
 
-      </div>
+      </styles.header>
     );
   }
 }

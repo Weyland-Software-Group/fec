@@ -1,8 +1,10 @@
+/* eslint-disable import/extensions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/destructuring-assignment */
 import React from 'react';
+import styles from './styles.js';
 
 class StyleSelectorItem extends React.Component {
   constructor(props) {
@@ -23,14 +25,14 @@ class StyleSelectorItem extends React.Component {
 
   render() {
     return (
-      <div className="circle">
+      <styles.circle>
         <img
           alt=""
           className="border-button"
           src={this.props.item.photos[0].thumbnail_url}
           onClick={this.handleClick}
         />
-      </div>
+      </styles.circle>
 
     );
   }

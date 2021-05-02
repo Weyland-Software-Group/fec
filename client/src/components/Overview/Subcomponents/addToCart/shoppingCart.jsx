@@ -8,6 +8,7 @@
 /* eslint-disable react/prefer-stateless-function */
 import React from 'react';
 import Cart from './cart.jsx';
+import styles from './styles.js';
 
 class ShoppingCart extends React.Component {
   constructor(props) {
@@ -45,15 +46,14 @@ class ShoppingCart extends React.Component {
   render() {
     if (this.state.dataR) {
       return (
-        <div className="shopping-container">
+        <styles.shoppingContainer>
           <h2>YOUR BAG</h2>
-          <button
+          <styles.shopping_button
             type="button"
-            className="shopping-button"
             onClick={this.onClose}
           >
             Back
-          </button>
+          </styles.shopping_button>
 
           {this.state.sortedProductData.map((item, index) => (
             <Cart
@@ -64,11 +64,11 @@ class ShoppingCart extends React.Component {
 
           <br />
 
-        </div>
+        </styles.shoppingContainer>
       );
     }
     return (
-      <div className="shopping-container">
+      <styles.shoppingContainer>
         {this.props.dataReady === true && (<div>Data Ready</div>)}
         <h2>YOUR BAG</h2>
         <button
@@ -81,7 +81,7 @@ class ShoppingCart extends React.Component {
 
         <br />
 
-      </div>
+      </styles.shoppingContainer>
 
     );
   }

@@ -7,6 +7,7 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
 import ReactDOM from 'react-dom';
+import styles from './styles.js';
 
 class Cart extends React.Component {
   constructor(props) {
@@ -22,16 +23,16 @@ class Cart extends React.Component {
     const { url } = photos[0];
 
     return (
-      <div className="cart">
-        <img className="cart-img" alt="" src={url} />
-        <div className="cart-text">
+      <styles.cart>
+        <styles.cartImg alt="" src={url} />
+        <styles.cartText>
           <h2>{cartInformation.name}</h2>
           <div>Style: {results[0].name}</div>
           <div>Sale price: {results[0].original_price}</div>
           <div>Size: M</div>
           <div>Quntity: 2</div>
-        </div>
-      </div>
+        </styles.cartText>
+      </styles.cart>
     );
   }
 }

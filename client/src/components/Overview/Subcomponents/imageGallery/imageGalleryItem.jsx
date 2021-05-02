@@ -1,3 +1,4 @@
+/* eslint-disable import/extensions */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable prefer-destructuring */
@@ -5,6 +6,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/destructuring-assignment */
 import React from 'react';
+import styles from './styles.js';
 
 class ImageGalleryItem extends React.Component {
   constructor(props) {
@@ -23,13 +25,13 @@ class ImageGalleryItem extends React.Component {
 
   render() {
     return (
-      <div className="image-vertical">
+      <styles.imageVertical>
         <img
           alt=""
           src={this.props.item.thumbnail_url}
           onClick={this.handleClick}
         />
-      </div>
+      </styles.imageVertical>
 
     );
   }

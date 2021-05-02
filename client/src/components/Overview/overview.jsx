@@ -5,10 +5,10 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable import/extensions */
 import React from 'react';
+import $ from 'jquery';
 import OverviewDefault from './overviewDefault.jsx';
-import OverViewExpanded from './overviewExpanded.jsx';
+import OverviewExpanded from './overviewExpanded.jsx';
 import ShoppingCart from './Subcomponents/addToCart/shoppingCart.jsx';
-// import sampleDataOutfit from '../sampleData_outfit.js';
 
 class Overview extends React.Component {
   constructor(props) {
@@ -94,7 +94,7 @@ class Overview extends React.Component {
           )}
 
             {this.state.defaultView === false && (
-            <OverViewExpanded
+            <OverviewExpanded
               data={data}
               style={this.state.style_photos}
               defaultView={this.state.defaultView}
