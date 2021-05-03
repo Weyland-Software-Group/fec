@@ -220,7 +220,7 @@ class App extends React.Component {
     }
     return (
       <div>
-        {this.state.overview
+        {this.state.reviews
           ? (
             <Overview
               data={this.state.data}
@@ -229,7 +229,6 @@ class App extends React.Component {
               refreshOutfit={this.refreshOutfit}
               addToOutfit={this.addToOutfit}
               toggleColorMode={this.toggleColorMode}
-              ratingPercentage={this.state.ratingPercentage}
               clickHandler={this.clickHandler}
             />
           )
@@ -242,7 +241,6 @@ class App extends React.Component {
               key={Math.random() * 1000000}
               colorMode={this.state.colorMode}
               clickHandler={this.clickHandler}
-              productID={this.state.productID}
             />
           )
           : <div />}
