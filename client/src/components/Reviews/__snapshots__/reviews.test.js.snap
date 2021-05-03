@@ -1,9 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`matches snapshot 1`] = `
-<div>
+<div
+  className="sc-furvIG gHrXqh"
+>
   <button
-    className="review-btn"
+    className="sc-caiKgP fQYWrg"
     data-testid="more-reviews"
     onClick={[Function]}
     type="button"
@@ -14,9 +16,11 @@ exports[`matches snapshot 1`] = `
 `;
 
 exports[`matches snapshot 2`] = `
-<div>
+<div
+  className="sc-furvIG gHrXqh"
+>
   <button
-    className="review-btn"
+    className="sc-caiKgP fQYWrg"
     data-testid="add-review"
     onClick={[Function]}
     type="button"

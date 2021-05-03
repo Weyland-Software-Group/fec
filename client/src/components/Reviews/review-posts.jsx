@@ -1,5 +1,5 @@
 import React from 'react';
-import helpers from './helpers.js';
+import Styles from './styles.js';
 import UpdateHelpfulness from './APIHandlers/updateHelpfulness.js'
 const moment = require('moment');
 
@@ -51,7 +51,7 @@ class ReviewPosts extends React.Component {
     const imgTags = [];
     if (photoArr.length) {
       photoArr.map(photo => {
-        imgTags.push(<img className="review-post-img" src={photo.url} />);
+        imgTags.push(<Styles.ReviewPostImg src={photo.url} />);
       });
     }
     return imgTags;
@@ -61,31 +61,31 @@ class ReviewPosts extends React.Component {
   renderRecommendation() {
     if (this.props.recommend) {
       return (
-        <div className="recommend-checkbox">
+        <Styles.RecommendCheckboxContainer>
           Yes
           <input type="checkbox" checked />
           No
           <input type="checkbox" />
-        </div>
+        </Styles.RecommendCheckboxContainer>
       );
     }
     return (
-      <div className="recommend-checkbox">
+      <Styles.RecommendCheckboxContainer>
         Yes
         <input type="checkbox" />
         No
         <input type="checkbox" checked />
-      </div>
+      </Styles.RecommendCheckboxContainer>
     );
   }
 
   renderSellerResponse() {
     if (this.props.response) {
       return (
-        <div>
+        <Styles.UtilityContainer>
           Seller Response:
-          <div className="seller-response">{this.props.response}</div>
-        </div>
+          <Styles.SellerResponse>{this.props.response}</Styles.SellerResponse>
+        </Styles.UtilityContainer>
       );
     }
   }
@@ -96,38 +96,38 @@ class ReviewPosts extends React.Component {
     };
 
     return (
-      <div>
-        <div className="review-post">
-          <div className="review-post-top-row">
-            <div className="star-rating-container review-post-star-rating-container">
-              <div className="star-container review-post-star-rating">
-                <div className="stars-outer">
-                  <div style={starInnerWidth} className="stars-inner"></div>
-                </div>
-              </div>
-            </div>
+      <Styles.UtilityContainer>
+        <Styles.ReviewPost>
+          <Styles.ReviewPostTopRow>
+            <Styles.ReviewPostStarRatingContainer>
+              <Styles.ReviewPostStarContainer>
+                <Styles.StarsOuterBefore>
+                  <Styles.StarsInnerBefore style={starInnerWidth} />
+                </Styles.StarsOuterBefore>
+              </Styles.ReviewPostStarContainer>
+            </Styles.ReviewPostStarRatingContainer>
 
-            <div className="username-date">{`${this.props.user}, ${moment(this.props.date).format('DD/MM/YYYY')}`}</div>
-          </div>
-          <h3 className="review-post-title">{this.props.title}</h3>
-          <p className="review-post-body">{this.props.body}</p>
-          <div className="recommend-product">
+            <Styles.UsernameDate>{`${this.props.user}, ${moment(this.props.date).format('DD/MM/YYYY')}`}</Styles.UsernameDate>
+          </Styles.ReviewPostTopRow>
+          <Styles.ReviewPostTitle>{this.props.title}</Styles.ReviewPostTitle>
+          <Styles.ReviewPostBody>{this.props.body}</Styles.ReviewPostBody>
+          <Styles.RecommendProduct>
             I recommend this product:
             {this.renderRecommendation()}
-          </div>
-          <div className="review-post-img-container">
+          </Styles.RecommendProduct>
+          <Styles.ReviewPostImgContainer>
             {this.renderReviewImages()}
-          </div>
-          <div>
+          </Styles.ReviewPostImgContainer>
+          <Styles.UtilityContainer>
             {this.renderSellerResponse()}
-          </div>
-          <div className="review-post-bottom-row">
-            Helpful? <div onClick={this.updateHelpfulness} className="helpful underline"> Yes({this.state.helpfulness}) </div>
+          </Styles.UtilityContainer>
+          <Styles.ReviewPostBottomRow>
+            Helpful? <Styles.Helpful onClick={this.updateHelpfulness}> Yes({this.state.helpfulness}) </Styles.Helpful>
             |
-            <a className="helpful" href="#"> Report</a>
-          </div>
-        </div>
-      </div>
+            <Styles.Helpful> Report</Styles.Helpful>
+          </Styles.ReviewPostBottomRow>
+        </Styles.ReviewPost>
+      </Styles.UtilityContainer>
     );
   }
 }

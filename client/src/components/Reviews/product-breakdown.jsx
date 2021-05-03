@@ -1,4 +1,5 @@
 import React from 'react';
+import Styles from './styles.js';
 
 class ProductBreakdown extends React.Component {
   constructor(props) {
@@ -13,26 +14,24 @@ class ProductBreakdown extends React.Component {
     };
 
     return (
-      <div className="size-comfort-scale">
-        <div className="size-comfort-container">
-          <span className="size-comfort-heading">{this.props.detailType}</span>
+        <Styles.SizeComfortContainer>
+          <Styles.SizeComfortHeading>{this.props.detailType}</Styles.SizeComfortHeading>
           <i style={positionCarrot} className="fas fa-caret-down size-comfort-carrot"></i>
-          <div className="size-comfort">
-            <div className="size-comfort-sub-container">
-              <div className="size-comfort-box"></div>
-              <small>Too small</small>
-            </div>
-            <div className="size-comfort-sub-container">
-              <div className="size-comfort-box"></div>
-              <small>Perfect</small>
-            </div>
-            <div className="size-comfort-sub-container">
-              <div className="size-comfort-box"></div>
-              <small>Too large</small>
-            </div>
-          </div>
-        </div>
-      </div>
+          <Styles.SizeComfort>
+            <Styles.SizeComfortSubContainer>
+              <Styles.SizeComfortBox />
+              <Styles.Small>Too small</Styles.Small>
+            </Styles.SizeComfortSubContainer>
+            <Styles.SizeComfortSubContainer>
+              <Styles.SizeComfortBox />
+              <Styles.Small>Perfect</Styles.Small>
+            </Styles.SizeComfortSubContainer>
+            <Styles.SizeComfortSubContainer>
+              <Styles.SizeComfortBox />
+              <Styles.Small>Too large</Styles.Small>
+            </Styles.SizeComfortSubContainer>
+          </Styles.SizeComfort>
+        </Styles.SizeComfortContainer>
     );
   }
 }

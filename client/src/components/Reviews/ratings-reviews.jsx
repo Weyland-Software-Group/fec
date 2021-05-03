@@ -4,6 +4,7 @@ import React from 'react';
 import helpers from './helpers.js';
 import RatingsCount from './ratings-count.jsx';
 import ProductBreakdown from './product-breakdown.jsx'
+import Styles from './styles.js';
 
 class RatingsReviews extends React.Component {
   constructor(props) {
@@ -125,7 +126,7 @@ class RatingsReviews extends React.Component {
   }
 
   clickTracker() {
-    this.props.click(`${this.props.filterBy} star rating filter in ratings breakdown`, 'Reviews');
+    this.props.clickTracking(`${this.props.filterBy} star rating filter in ratings breakdown`, 'Reviews');
   }
 
   showFilters() {
@@ -170,15 +171,15 @@ class RatingsReviews extends React.Component {
 
     return (
       <div>
-        <h4 className="sub-heading">Ratings and Reviews</h4>
-        <div className="star-rating-container">
-          <div className="star-rating-header">{this.state.avgRating}</div>
-          <div className="star-container">
-            <div className="stars-outer">
-              <div style={starInnerWidth} className="stars-inner"></div>
-            </div>
-          </div>
-        </div>
+        <h4 data-testid="ratings-reviews-heading" className="sub-heading">Ratings and Reviews</h4>
+        <Styles.StarRatingContainer>
+          <Styles.StarRatingHeader>{this.state.avgRating}</Styles.StarRatingHeader>
+          <Styles.StarContainer>
+            <Styles.StarsOuterBefore>
+              <Styles.StarsInnerBefore style={starInnerWidth} />
+            </Styles.StarsOuterBefore>
+          </Styles.StarContainer>
+        </Styles.StarRatingContainer>
         <div className="individual-ratings-container">
           <h4 className="sub-heading">Ratings Breakdown:</h4>
           <h4 className="recommendation-percentage">{this.state.recommendationPercentage}
@@ -186,9 +187,9 @@ class RatingsReviews extends React.Component {
           {this.createRatingsCountBars().map(ratingsCountBar => ratingsCountBar)}
           <div>{this.showFilters()}</div>
         </div>
-        <div className="size-comfort-scale">
+        <Styles.SizeComfortScale>
           {this.state.productBreakdownComponents.map(component => component)}
-        </div>
+        </Styles.SizeComfortScale>
       </div>
     );
   }

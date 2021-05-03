@@ -50,6 +50,7 @@ class App extends React.Component {
           data: currentData,
         }, () => {
           this.setState({
+            productID: productID,
             reviews: true,
           });
         });

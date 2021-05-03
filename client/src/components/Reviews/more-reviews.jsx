@@ -1,4 +1,5 @@
 import React from 'react';
+import Styles from './styles.js';
 
 class MoreReviews extends React.Component {
   constructor(props) {
@@ -16,16 +17,15 @@ class MoreReviews extends React.Component {
 
   render() {
     return (
-      <div>
-        <button
+      <Styles.UtilityContainer>
+        <Styles.ReviewButton
           onClick={this.handleClick}
-          className="review-btn"
           type="button"
           data-testid="more-reviews"
         >
           More Reviews
-        </button>
-      </div>
+        </Styles.ReviewButton>
+      </Styles.UtilityContainer>
     );
   }
 }

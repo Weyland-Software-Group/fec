@@ -13,6 +13,9 @@ body {
 }
 
 .stars-outer {
+  content: "\f005 \f005 \f005 \f005 \f005";
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 200;
   font-size: 12px;
   position: relative;
   display: flex;
@@ -20,6 +23,10 @@ body {
 }
 
 .stars-inner {
+  content: "\f005 \f005 \f005 \f005 \f005";
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  color: #000;
   font-size: 12px;
   position: absolute;
   top: 0;
@@ -29,7 +36,7 @@ body {
   width: 0;
 }
 
-.stars-outer::before {
+/* .stars-outer::before {
   content: "\f005 \f005 \f005 \f005 \f005";
   font-family: 'Font Awesome 5 Free';
   font-weight: 200;
@@ -40,7 +47,7 @@ body {
   font-family: 'Font Awesome 5 Free';
   font-weight: 900;
   color: #000;
-}
+} */
 
 .disabled {
   pointer-events: none;
