@@ -1,3 +1,3 @@
-const baseURL = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo';
+const baseURL = 'http://localhost:4444';
 
 module.exports = baseURL;
